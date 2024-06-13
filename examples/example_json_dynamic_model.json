@@ -1,0 +1,15 @@
+{
+    "": "PersonModel1",
+    "description": "Model that describes a Person with all of its attributes",
+    "short": "PersonModel1",
+    "adress": {
+        "": "PersonModel1Adress",
+        "street": "example_street",
+        "number": 34
+    },
+    "personal_information": {
+        "": "personModel1Info",
+        "age": 23,
+        "name": "Peter"
+    }
+}
