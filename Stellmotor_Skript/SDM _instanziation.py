@@ -4,10 +4,42 @@ from aas2openapi.middleware import Middleware
 from aas2openapi import models
 from enum import Enum
 
-import models.product
-print("Attributes in models.product:", dir(models.product))
+from models.product import (
+        ProcessReference,
+        Product,
+        ProductInformation,
+        ProductUseType,
+        SubProduct,
+        BOM,
+        TrackingData,
+        ConstructionData
+    )
 
-# Create a product instance
+
+from models.processes import (
+    Process,
+    ProcessInformation,
+    AttributePredicate,
+    ProcessAttributes,
+    ProcessModelType,
+    ProcessModel
+)
+
+from models.procedure import (
+    ProcedureTypeEnum,
+    ActivityTypeEnum,
+    Event,
+    ExecutionModel,
+    TimeModel,
+    ProcedureInformation,
+    GreenHouseGasEmission,
+    ProcedureEmission,
+    Procedure
+)
+
+
+# Test Middleware Capabilities for Product AAS
+# First, create an example product
 
 example_product = Product(
     id="TTN01_example_instances",
@@ -60,12 +92,13 @@ example_product = Product(
     )
 )
 
+# Transform Model to an AAS
 
 obj_store = aas2openapi.convert_pydantic_model_to_aas(example_product)
 
 import basyx.aas.adapter.json.json_serialization
 
-with open("examples/simple_aas_and_submodels.json", "w", encoding="utf-8") as json_file:
+with open("Stellmotor_Skript/simple_aas_and_submodels.json", "w", encoding="utf-8") as json_file:
     basyx.aas.adapter.json.write_aas_json_file(json_file, obj_store)
 
 # Reverse transformation
@@ -75,7 +108,7 @@ data_model = aas2openapi.convert_object_store_to_pydantic_models(obj_store)
 # Create the middleware and load the models
 middleware = Middleware()
 
-middleware.load_pydantic_models([Product])
+middleware.load_pydantic_models([Product, Process, Procedure])
 # middleware.load_pydantic_model_instances([example_product, example_process])
 # middleware.load_aas_objectstore(obj_store)
 # middleware.load_json_models(file_path="examples/example_json_model.json")
