@@ -2,14 +2,6 @@ import requests
 import json
 import os
 
-headers = {
-    'Accept': '*/*',
-    'User-Agent': 'PostmanRuntime/7.39.0',  # Mimic the Postman User-Agent
-    'Connection': 'keep-alive',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Content-Type': 'application/json',  # Only if necessary
-}
-
 # Define the base URL for the server
 BASE_URL = "http://127.0.0.1:8000"
 
@@ -89,14 +81,7 @@ def retrieve_attached_procedures(product_id):
     # Function to get JSON data from the server
     def get_json(url):
         print(f"Attempting to GET data from URL: {url}")  # Debug line to print the exact URL being requested
-        headers = {
-            'Accept': '*/*',
-            'User-Agent': 'PostmanRuntime/7.39.0',  # Mimic the Postman User-Agent
-            'Connection': 'keep-alive',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Content-Type': 'application/json',  # Only if necessary
-        }
-        response = requests.get(url, headers=headers, allow_redirects=True)  # Allowing redirects
+        response = requests.get(url, allow_redirects=True)  # Allowing redirects
         print(f"Response status code: {response.status_code}")  # Debug line to show status code
         if response.status_code != 200:
             print(f"Error {response.status_code} for URL: {url}")
@@ -107,7 +92,7 @@ def retrieve_attached_procedures(product_id):
 
     # Load the product AAS to find the main process
     try:
-        product_data = get_json(BASE_URL + PATHS["Product"] + f"/{product_id}")
+        product_data = get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
         print(f"Retrieved product data for {product_id}")
         main_process_id = product_data.get("process_reference", {}).get("process_id")
         if not main_process_id:
@@ -120,7 +105,7 @@ def retrieve_attached_procedures(product_id):
 
     # Load the main process to find attached processes
     try:
-        main_process_data = get_json(BASE_URL + PATHS["Process"] + f"/{main_process_id}")
+        main_process_data = get_json(BASE_URL + PATHS["Process"] + f"{main_process_id}")
         print(f"Retrieved main process data for {main_process_id}")
         attached_process_ids = main_process_data.get("process_model", {}).get("sequence", [])
         print(f"Attached process IDs found: {attached_process_ids}")
@@ -133,14 +118,14 @@ def retrieve_attached_procedures(product_id):
         try:
             print(f"Processing attached process ID: {process_id}")
             # Fetch the process data to get the process attributes
-            process_data = get_json(BASE_URL + PATHS["Process"] + f"/{process_id}")
+            process_data = get_json(BASE_URL + PATHS["Process"] + f"{process_id}")
             process_attributes = process_data.get("process_attributes", {}).get("id_short")
             if process_attributes:
                 # Derive the procedure ID from the process ID
                 procedure_id = f"procedure_{process_id.split('_', 1)[1]}"
                 print(f"Derived procedure ID: {procedure_id}")
                 # Construct the full URL for the procedure
-                procedure_url = BASE_URL + PATHS["Procedure"] + f"/{procedure_id}"
+                procedure_url = BASE_URL + PATHS["Procedure"] + f"{procedure_id}"
                 print(f"Attempting to GET procedure data from URL: {procedure_url}")  # Debug line to print procedure URL
                 # Fetch the procedure data using the derived procedure ID
                 procedure_data = get_json(procedure_url)
@@ -153,6 +138,7 @@ def retrieve_attached_procedures(product_id):
 
     print("Completed retrieval of all attached procedures.")
     return procedure_responses
+
 
 # Save the retrieved procedure data to a JSON file
 def save_procedures(data, file_path="attached_procedures.json"):
@@ -167,17 +153,16 @@ if __name__ == "__main__":
 
     # Check if all uploads were successful
     check_uploads(post_results)
-
+    """
     # Retrieve attached procedures for the given product
     product_id = "product_001"  # Adjust to your product ID
     attached_procedures_data = retrieve_attached_procedures(product_id)
-
-    response = requests.get('http://127.0.0.1:8000/Procedure/procedure_pressen_1', headers=headers)
-    print(response.status_code)
-    print(response.text)
     
+
     # Save the attached procedures data to a file
     if attached_procedures_data:
         save_procedures(attached_procedures_data)
 
     print("Script execution completed.")
+
+    """
