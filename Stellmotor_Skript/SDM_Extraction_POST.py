@@ -12,6 +12,9 @@ PATHS = {
     "Procedure": "/Procedure"
 }
 
+# Directory where JSON files are stored
+JSON_DIRECTORY = "Stellmotor_Skript"  # Adjust this if your JSON files are in a different directory
+
 # List of JSON files with corrected names to post
 JSON_FILES = [
     "AAS_motor_example.json",
@@ -36,7 +39,8 @@ JSON_FILES = [
 # Function to post JSON data
 def post_json(json_file, path):
     url = BASE_URL + path
-    with open(json_file, 'r') as file:
+    file_path = os.path.join(JSON_DIRECTORY, json_file)
+    with open(file_path, 'r') as file:
         data = json.load(file)
         response = requests.post(url, json=data)
         return response.status_code, response.json()
