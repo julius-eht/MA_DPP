@@ -1,0 +1,51 @@
+{
+  "id": "process_magnetisieren",
+  "description": "Magnetisieren Process",
+  "id_short": "Magnetisieren",
+  "semantic_id": "http://example.com/semantic/Magnetisieren",
+  "process_information": {
+    "id": "proc_info_magnetisieren",
+    "description": "Magnetization process in the assembly sequence",
+    "id_short": "Magnetizing",
+    "semantic_id": "http://example.com/semantic/Magnetizing",
+    "general_type": "Manufacturing",
+    "manufacturing_process_type": "Changing Material Properties",
+    "material_flow_process_type": null,
+    "remanufacturing_process_type": null,
+    "assembly_process_type": null
+  },
+  "process_model": {
+    "id": "proc_model_magnetisieren",
+    "description": "Sequential process model for Magnetisieren",
+    "id_short": "Magnetisieren_Model",
+    "semantic_id": "http://example.com/semantic/Magnetisieren_Model",
+    "type_": "Sequential",
+    "sequence": [
+      "process_pressen_1",
+      "process_pressen_2_3",
+      "process_pressen_4",
+      "process_magnetisieren",
+      "process_fugen_1",
+      "process_schrauben_1",
+      "process_fugen_2",
+      "process_schrauben_2"
+    ],
+    "nodes": null,
+    "edges": null
+  },
+  "process_attributes": {
+    "id": "proc_attr_magnetisieren",
+    "description": "Attributes for the Magnetisieren process",
+    "id_short": "Magnetisieren_Attributes",
+    "semantic_id": "http://example.com/semantic/Magnetisieren_Attributes",
+    "process_attributes": [
+      {
+        "id_short": "Magnetic_Field_Strength",
+        "attribute_carrier": "Magnetisieren",
+        "general_attribute": "Magnetic Field Strength",
+        "predicate_type": "within_range",
+        "attribute_value": "1.0-2.0 Tesla"
+      }
+    ]
+  }
+}

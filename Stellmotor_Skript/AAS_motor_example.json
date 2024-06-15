@@ -1,0 +1,134 @@
+{
+    "id": "product_001",
+    "description": "Bosch AHC2 Motor",
+    "id_short": "AHC2_Motor",
+    "semantic_id": "http://example.com/semantic/AHC2_Motor",
+    "product_information": {
+      "id": "prod_info_001",
+      "description": "Bosch AHC2 DC motor with transmission",
+      "id_short": "AHC2_Info",
+      "semantic_id": "http://example.com/semantic/AHC2_Info",
+      "product_type": "DC Motor with Transmission",
+      "manufacturer": "Bosch",
+      "maintenance_manual": "http://bosch-ibusiness.com/manuals/AHC2_maintenance.pdf",
+      "operating_manual": "http://bosch-ibusiness.com/manuals/AHC2_operating.pdf",
+      "disassembly_manual": "http://bosch-ibusiness.com/manuals/AHC2_disassembly.pdf",
+      "green_house_gas_emission": {
+        "id": "ghg_001",
+        "description": "Greenhouse gas emissions for the manufacturing process",
+        "id_short": "GHGEmission",
+        "semantic_id": "http://example.com/semantic/GHGEmission",
+        "emission_scope_one": null,
+        "emission_scope_two": null, 
+        "emission_scope_three": null 
+      }
+    },
+    "construction_data": {
+      "id": "const_data_001",
+      "description": "CAD and design files for Bosch AHC2 Motor",
+      "id_short": "DesignFiles",
+      "semantic_id": "http://example.com/semantic/DesignFiles",
+      "cad_file": "http://bosch-ibusiness.com/cad/AHC2_motor_design.igs"
+    },
+    "bom": {
+      "id": "bom_001",
+      "description": "Bill of materials for Bosch AHC2 Motor",
+      "id_short": "BOM",
+      "semantic_id": "http://example.com/semantic/BOM",
+      "sub_product_count": 3,
+      "sub_products": [
+        {
+          "id": "sub_prod_001",
+          "description": "Motor assembly",
+          "id_short": "Motor",
+          "semantic_id": "http://example.com/semantic/SubProduct",
+          "product_type": "Mechanical Component",
+          "product_id": "ahc2_motor_001",
+          "product_use_type": "assembled",
+          "quantity": 1
+        },
+        {
+          "id": "sub_prod_002",
+          "description": "Control unit",
+          "id_short": "ControlUnit",
+          "semantic_id": "http://example.com/semantic/SubProduct",
+          "product_type": "Electronic Component",
+          "product_id": "control_unit_001",
+          "product_use_type": "assembled",
+          "quantity": 1
+        },
+        {
+          "id": "sub_prod_003",
+          "description": "Transmission assembly",
+          "id_short": "Transmission",
+          "semantic_id": "http://example.com/semantic/SubProduct",
+          "product_type": "Mechanical Component",
+          "product_id": "transmission_001",
+          "product_use_type": "assembled",
+          "quantity": 1
+        }
+      ]
+    },
+    "process_reference": {
+      "id": "proc_ref_001",
+      "description": "Primary and alternative processes for creating Bosch AHC2 Motor",
+      "id_short": "ProcRef",
+      "semantic_id": "http://example.com/semantic/ProcRef",
+      "process_id": "process_pressen_2_3",
+      "alternative_processes_ids": ["process_fugen_1", "process_fugen_1", "process_pressen_1", "process_pressen_4", "process_magnetisieren", "process_schrauben_1", "process_schrauben_2"]
+    },
+    "tracking_data": {
+      "id": "track_data_001",
+      "description": "Tracking and execution log for Bosch AHC2 Motor",
+      "id_short": "TrackData",
+      "semantic_id": "http://example.com/semantic/TrackData",
+      "execution_log": [
+        {
+          "id": "event_001",
+          "description": "Motor assembly completed",
+          "id_short": "Event1",
+          "semantic_id": "http://example.com/semantic/Event",
+          "time": "2024-06-01T10:00:00Z",
+          "resource_id": "res_001",
+          "procedure_id": "proc_assembly",
+          "procedure_type": "Setup",
+          "activity": "Start",
+          "product_id": "ahc2_motor_001",
+          "expected_end_time": "2024-06-01T12:00:00Z",
+          "actual_end_time": "2024-06-01T12:30:00Z",
+          "success": true
+        },
+        {
+          "id": "event_002",
+          "description": "Control unit installation completed",
+          "id_short": "Event2",
+          "semantic_id": "http://example.com/semantic/Event",
+          "time": "2024-06-02T14:30:00Z",
+          "resource_id": "res_002",
+          "procedure_id": "proc_installation",
+          "procedure_type": "Setup",
+          "activity": "End",
+          "product_id": "control_unit_001",
+          "expected_end_time": "2024-06-02T16:00:00Z",
+          "actual_end_time": "2024-06-02T15:50:00Z",
+          "success": true
+        },
+        {
+          "id": "event_003",
+          "description": "Transmission system tested",
+          "id_short": "Event3",
+          "semantic_id": "http://example.com/semantic/Event",
+          "time": "2024-06-03T09:45:00Z",
+          "resource_id": "res_003",
+          "procedure_id": "proc_testing",
+          "procedure_type": "Maintenance",
+          "activity": "Start",
+          "product_id": "transmission_001",
+          "expected_end_time": "2024-06-03T11:00:00Z",
+          "actual_end_time": "2024-06-03T11:15:00Z",
+          "success": true
+        }
+      ]
+    }
+  }
+  

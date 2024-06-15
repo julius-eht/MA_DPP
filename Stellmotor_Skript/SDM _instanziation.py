@@ -39,7 +39,7 @@ from models.procedure import (
 
 
 # Test Middleware Capabilities for Product AAS
-# First, create an example product
+# First, create an incomplete example product
 
 example_product = Product(
     id="TTN01_example_instances",

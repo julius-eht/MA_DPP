@@ -1,0 +1,36 @@
+{
+  "id": "procedure_schrauben_1",
+  "description": "Schrauben 1 Procedure",
+  "id_short": "Schrauben_1_Procedure",
+  "semantic_id": "http://example.com/semantic/Schrauben_1_Procedure",
+  "procedure_information": {
+    "id": "proc_info_schrauben_1",
+    "description": "Procedure for the first screwing process in the assembly sequence",
+    "id_short": "FirstScrewingProcedure",
+    "semantic_id": "http://example.com/semantic/FirstScrewingProcedure",
+    "procedure_type": "Production"
+  },
+  "process_attributes": {
+    "id": "proc_attr_schrauben_1",
+    "description": "Attributes for the Schrauben 1 process",
+    "id_short": "Schrauben_1_Attributes",
+    "semantic_id": "http://example.com/semantic/Schrauben_1_Attributes",
+    "process_attributes": [
+      {
+        "id_short": "Torque_Specification",
+        "attribute_carrier": "Schrauben_1",
+        "general_attribute": "Torque",
+        "predicate_type": "within_range",
+        "attribute_value": "15-20 Nm"
+      }
+    ]
+  },
+  "procedure_emission": {
+    "id": "proc_emission_schrauben_1",
+    "description": "Emission details for Schrauben 1 procedure",
+    "id_short": "Schrauben_1_Emission",
+    "semantic_id": "http://example.com/semantic/Schrauben_1_Emission",
+    "power_consumption": 0.5,
+    "green_house_gas_emission": null
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "procedure_pressen_1",
+  "description": "Pressen 1 Procedure",
+  "id_short": "Pressen_1_Procedure",
+  "semantic_id": "http://example.com/semantic/Pressen_1_Procedure",
+  "procedure_information": {
+    "id": "proc_info_pressen_1",
+    "description": "Procedure for the first pressing process in the assembly sequence",
+    "id_short": "FirstPressingProcedure",
+    "semantic_id": "http://example.com/semantic/FirstPressingProcedure",
+    "procedure_type": "Production"
+  },
+  "process_attributes": {
+    "id": "proc_attr_pressen_1",
+    "description": "Attributes for the Pressen 1 process",
+    "id_short": "Pressen_1_Attributes",
+    "semantic_id": "http://example.com/semantic/Pressen_1_Attributes",
+    "process_attributes": [
+      {
+        "id_short": "Pressure_Range",
+        "attribute_carrier": "Pressen_1",
+        "general_attribute": "Pressure",
+        "predicate_type": "within_range",
+        "attribute_value": "120-250 PSI"
+      }
+    ]
+  },
+  "procedure_emission": {
+    "id": "proc_emission_pressen_1",
+    "description": "Emission details for Pressen 1 procedure",
+    "id_short": "Pressen_1_Emission",
+    "semantic_id": "http://example.com/semantic/Pressen_1_Emission",
+    "power_consumption": 0.1,
+    "green_house_gas_emission": null
+  }
+}

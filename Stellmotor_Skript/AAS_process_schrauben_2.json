@@ -1,0 +1,51 @@
+{
+  "id": "process_schrauben_2",
+  "description": "Schrauben 2 Process",
+  "id_short": "Schrauben_2",
+  "semantic_id": "http://example.com/semantic/Schrauben_2",
+  "process_information": {
+    "id": "proc_info_schrauben_2",
+    "description": "Second screwing process in the assembly sequence",
+    "id_short": "SecondScrewing",
+    "semantic_id": "http://example.com/semantic/SecondScrewing",
+    "general_type": "Assembly",
+    "manufacturing_process_type": null,
+    "material_flow_process_type": null,
+    "remanufacturing_process_type": null,
+    "assembly_process_type": "Joining"
+  },
+  "process_model": {
+    "id": "proc_model_schrauben_2",
+    "description": "Sequential process model for Schrauben 2",
+    "id_short": "Schrauben_2_Model",
+    "semantic_id": "http://example.com/semantic/Schrauben_2_Model",
+    "type_": "Sequential",
+    "sequence": [
+      "process_pressen_1",
+      "process_pressen_2_3",
+      "process_pressen_4",
+      "process_magnetisieren",
+      "process_fugen_1",
+      "process_schrauben_1",
+      "process_fugen_2",
+      "process_schrauben_2"
+    ],
+    "nodes": null,
+    "edges": null
+  },
+  "process_attributes": {
+    "id": "proc_attr_schrauben_2",
+    "description": "Attributes for the Schrauben 2 process",
+    "id_short": "Schrauben_2_Attributes",
+    "semantic_id": "http://example.com/semantic/Schrauben_2_Attributes",
+    "process_attributes": [
+      {
+        "id_short": "Torque_Specification",
+        "attribute_carrier": "Schrauben_2",
+        "general_attribute": "Torque",
+        "predicate_type": "within_range",
+        "attribute_value": "10-15 Nm"
+      }
+    ]
+  }
+}

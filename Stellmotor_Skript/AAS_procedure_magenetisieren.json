@@ -1,0 +1,36 @@
+{
+  "id": "procedure_magnetisieren",
+  "description": "Magnetisieren Procedure",
+  "id_short": "Magnetisieren_Procedure",
+  "semantic_id": "http://example.com/semantic/Magnetisieren_Procedure",
+  "procedure_information": {
+    "id": "proc_info_magnetisieren",
+    "description": "Procedure for the magnetization process in the assembly sequence",
+    "id_short": "MagnetizingProcedure",
+    "semantic_id": "http://example.com/semantic/MagnetizingProcedure",
+    "procedure_type": "Production"
+  },
+  "process_attributes": {
+    "id": "proc_attr_magnetisieren",
+    "description": "Attributes for the Magnetisieren process",
+    "id_short": "Magnetisieren_Attributes",
+    "semantic_id": "http://example.com/semantic/Magnetisieren_Attributes",
+    "process_attributes": [
+      {
+        "id_short": "Magnetic_Field_Strength",
+        "attribute_carrier": "Magnetisieren",
+        "general_attribute": "Magnetic Field Strength",
+        "predicate_type": "within_range",
+        "attribute_value": "1.0-2.0 Tesla"
+      }
+    ]
+  },
+  "procedure_emission": {
+    "id": "proc_emission_magnetisieren",
+    "description": "Emission details for Magnetisieren procedure",
+    "id_short": "Magnetisieren_Emission",
+    "semantic_id": "http://example.com/semantic/Magnetisieren_Emission",
+    "power_consumption": 2.0,
+    "green_house_gas_emission": null
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "process_pressen_1",
+  "description": "Pressen 1 Process",
+  "id_short": "Pressen_1",
+  "semantic_id": "http://example.com/semantic/Pressen_1",
+  "process_information": {
+    "id": "proc_info_pressen_1",
+    "description": "First pressing process in the assembly sequence",
+    "id_short": "FirstPressing",
+    "semantic_id": "http://example.com/semantic/FirstPressing",
+    "general_type": "Assembly",
+    "manufacturing_process_type": null,
+    "material_flow_process_type": null,
+    "remanufacturing_process_type": null,
+    "assembly_process_type": "Joining"
+  },
+  "process_model": {
+    "id": "proc_model_pressen_1",
+    "description": "Sequential process model for Pressen 1",
+    "id_short": "Pressen_1_Model",
+    "semantic_id": "http://example.com/semantic/Pressen_1_Model",
+    "type_": "Sequential",
+    "sequence": [
+      "process_pressen_1",
+      "process_pressen_2_3",
+      "process_pressen_4",
+      "process_magnetisieren",
+      "process_fugen_1",
+      "process_schrauben_1",
+      "process_fugen_2",
+      "process_schrauben_2"
+    ],
+    "nodes": null,
+    "edges": null
+  },
+  "process_attributes": {
+    "id": "proc_attr_pressen_1",
+    "description": "Attributes for the Pressen 1 process",
+    "id_short": "Pressen_1_Attributes",
+    "semantic_id": "http://example.com/semantic/Pressen_1_Attributes",
+    "process_attributes": [
+      {
+        "id_short": "Pressure_Range",
+        "attribute_carrier": "Pressen_1",
+        "general_attribute": "Pressure",
+        "predicate_type": "within_range",
+        "attribute_value": "120-250 PSI"
+      }
+    ]
+  }
+}

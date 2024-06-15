@@ -1,0 +1,36 @@
+{
+  "id": "procedure_fugen_1",
+  "description": "Fügen 1 Procedure",
+  "id_short": "Fugen_1_Procedure",
+  "semantic_id": "http://example.com/semantic/Fugen_1_Procedure",
+  "procedure_information": {
+    "id": "proc_info_fugen_1",
+    "description": "Procedure for the first joining process in the assembly sequence",
+    "id_short": "FirstJoiningProcedure",
+    "semantic_id": "http://example.com/semantic/FirstJoiningProcedure",
+    "procedure_type": "Production"
+  },
+  "process_attributes": {
+    "id": "proc_attr_fugen_1",
+    "description": "Attributes for the Fügen 1 process",
+    "id_short": "Fugen_1_Attributes",
+    "semantic_id": "http://example.com/semantic/Fugen_1_Attributes",
+    "process_attributes": [
+      {
+        "id_short": "Housing_Placement",
+        "attribute_carrier": "Fugen_1",
+        "general_attribute": "Positioning Accuracy",
+        "predicate_type": "requires_to_be",
+        "attribute_value": "Aligned within 0.1 mm tolerance"
+      }
+    ]
+  },
+  "procedure_emission": {
+    "id": "proc_emission_fugen_1",
+    "description": "Emission details for Fügen 1 procedure",
+    "id_short": "Fugen_1_Emission",
+    "semantic_id": "http://example.com/semantic/Fugen_1_Emission",
+    "power_consumption": 0.1,
+    "green_house_gas_emission": null
+  }
+}
