@@ -15,6 +15,15 @@ PATHS = {
 # Directory where JSON files are stored
 JSON_DIRECTORY = "Stellmotor_Skript"  # Adjust this if your JSON files are in a different directory
 
+# Headers to match manual upload (Postman)
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "User-Agent": "PostmanRuntime/7.39.0"  # This mirrors the User-Agent from the manual upload
+}
+
 # List of JSON files with corrected names to post
 JSON_FILES = [
     "AAS_motor_example.json",
@@ -27,13 +36,7 @@ JSON_FILES = [
     "AAS_process_schrauben_1.json",
     "AAS_process_schrauben_2.json",
     "AAS_procedure_pressen_1.json",
-    "AAS_procedure_pressen_2_3.json",
-    "AAS_procedure_pressen_4.json",
-    "AAS_procedure_magnetisieren.json",
-    "AAS_procedure_fugen_1.json",
-    "AAS_procedure_fugen_2.json",
-    "AAS_procedure_schrauben_1.json",
-    "AAS_procedure_schrauben_2.json"
+
 ]
 
 # Function to post JSON data
@@ -42,7 +45,7 @@ def post_json(json_file, path):
     file_path = os.path.join(JSON_DIRECTORY, json_file)
     with open(file_path, 'r') as file:
         data = json.load(file)
-        response = requests.post(url, json=data, allow_redirects=True)  # Allowing redirects
+        response = requests.post(url, json=data,headers=headers, allow_redirects=True) 
         return response.status_code, response.json()
 
 # Post all JSON files
