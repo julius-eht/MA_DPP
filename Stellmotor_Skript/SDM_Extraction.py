@@ -36,7 +36,13 @@ JSON_FILES = [
     "AAS_process_schrauben_1.json",
     "AAS_process_schrauben_2.json",
     "AAS_procedure_pressen_1.json",
-
+    "AAS_procedure_pressen_2_3.json",
+    "AAS_procedure_pressen_4.json",
+    "AAS_procedure_magnetisieren.json",
+    "AAS_procedure_fugen_1.json",
+    "AAS_procedure_fugen_2.json",
+    "AAS_procedure_schrauben_1.json",
+    "AAS_procedure_schrauben_2.json"
 ]
 
 # Function to post JSON data

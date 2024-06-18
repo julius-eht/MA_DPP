@@ -1,6 +1,6 @@
 {
   "id": "process_fugen_1",
-  "description": "Fügen 1 Process",
+  "description": "Fugen 1 Process",
   "id_short": "Fugen_1",
   "semantic_id": "http://example.com/semantic/Fugen_1",
   "process_information": {
@@ -16,7 +16,7 @@
   },
   "process_model": {
     "id": "proc_model_fugen_1",
-    "description": "Sequential process model for Fügen 1",
+    "description": "Sequential process model for Fugen 1",
     "id_short": "Fugen_1_Model",
     "semantic_id": "http://example.com/semantic/Fugen_1_Model",
     "type_": "Sequential",
@@ -35,7 +35,7 @@
   },
   "process_attributes": {
     "id": "proc_attr_fugen_1",
-    "description": "Attributes for the Fügen 1 process",
+    "description": "Attributes for the Fugen 1 process",
     "id_short": "Fugen_1_Attributes",
     "semantic_id": "http://example.com/semantic/Fugen_1_Attributes",
     "process_attributes": [

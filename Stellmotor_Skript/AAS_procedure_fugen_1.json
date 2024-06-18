@@ -1,6 +1,6 @@
 {
   "id": "procedure_fugen_1",
-  "description": "Fügen 1 Procedure",
+  "description": "Fugen 1 Procedure",
   "id_short": "Fugen_1_Procedure",
   "semantic_id": "http://example.com/semantic/Fugen_1_Procedure",
   "procedure_information": {
@@ -12,7 +12,7 @@
   },
   "process_attributes": {
     "id": "proc_attr_fugen_1",
-    "description": "Attributes for the Fügen 1 process",
+    "description": "Attributes for the Fugen 1 process",
     "id_short": "Fugen_1_Attributes",
     "semantic_id": "http://example.com/semantic/Fugen_1_Attributes",
     "process_attributes": [
@@ -27,7 +27,7 @@
   },
   "procedure_emission": {
     "id": "proc_emission_fugen_1",
-    "description": "Emission details for Fügen 1 procedure",
+    "description": "Emission details for Fugen 1 procedure",
     "id_short": "Fugen_1_Emission",
     "semantic_id": "http://example.com/semantic/Fugen_1_Emission",
     "power_consumption": 0.1,
