@@ -1,10 +1,10 @@
 {
   "id": "procedure_schrauben_1",
   "description": "Schrauben 1 Procedure",
-  "id_short": "Schrauben_1_Procedure",
+  "id_short": "Schrauben_1",
   "semantic_id": "http://example.com/semantic/Schrauben_1_Procedure",
   "procedure_information": {
-    "id": "proc_info_schrauben_1",
+    "id": "procedure_info_schrauben_1",
     "description": "Procedure for the first screwing process in the assembly sequence",
     "id_short": "FirstScrewingProcedure",
     "semantic_id": "http://example.com/semantic/FirstScrewingProcedure",

@@ -1,9 +1,9 @@
 {
-    "id": "product_001",
-    "description": "Bosch AHC2 Motor",
-    "id_short": "AHC2_Motor",
-    "semantic_id": "http://example.com/semantic/AHC2_Motor",
-    "product_information": {
+  "id": "product_001",
+  "description": "Bosch AHC2 Motor",
+  "id_short": "AHC2_Motor",
+  "semantic_id": "http://example.com/semantic/AHC2_Motor",
+  "product_information": {
       "id": "prod_info_001",
       "description": "Bosch AHC2 DC motor with transmission",
       "id_short": "AHC2_Info",
@@ -14,231 +14,216 @@
       "operating_manual": "http://bosch-ibusiness.com/manuals/AHC2_operating.pdf",
       "disassembly_manual": "http://bosch-ibusiness.com/manuals/AHC2_disassembly.pdf",
       "green_house_gas_emission": {
-        "id": "ghg_001",
-        "description": "Greenhouse gas emissions for the manufacturing process",
-        "id_short": "GHGEmission",
-        "semantic_id": "http://example.com/semantic/GHGEmission",
-        "emission_scope_one": null,
-        "emission_scope_two": null, 
-        "emission_scope_three": null 
+          "id": "ghg_001",
+          "description": "Greenhouse gas emissions for the manufacturing process",
+          "id_short": "GHGEmission",
+          "semantic_id": "http://example.com/semantic/GHGEmission",
+          "emission_scope_one": null,
+          "emission_scope_two": null,
+          "emission_scope_three": null
       }
-    },
-    "construction_data": {
+  },
+  "construction_data": {
       "id": "const_data_001",
       "description": "CAD and design files for Bosch AHC2 Motor",
       "id_short": "DesignFiles",
       "semantic_id": "http://example.com/semantic/DesignFiles",
       "cad_file": "http://bosch-ibusiness.com/cad/AHC2_motor_design.igs"
-    },
-    "bom": {
+  },
+  "bom": {
       "id": "bom_001",
       "description": "Bill of materials for Bosch AHC2 Motor",
       "id_short": "BOM",
       "semantic_id": "http://example.com/semantic/BOM",
       "sub_product_count": 14,
       "sub_products": [
-       {
-         "id": "sub_prod_001",
-            "description": "Poltopf",
-            "id_short": "Poltopf",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "poltopf_001",
-            "product_use_type": "assembled",
-            "quantity": 1
+          {
+              "id_short": "sub_prod_001",
+              "description": "Poltopf",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "poltopf_001",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_002",
-            "description": "Clamps",
-            "id_short": "Clamps",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "clamps_002",
-            "product_use_type": "assembled",
-            "quantity": 2
+              "id_short": "sub_prod_002",
+              "description": "Clamps",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "clamps_002",
+              "product_use_type": "assembled",
+              "quantity": 2
           },
           {
-            "id": "sub_prod_003",
-            "description": "Magnet Halves",
-            "id_short": "MagnetHalves",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "magnet_halves_003",
-            "product_use_type": "assembled",
-            "quantity": 2
+              "id_short": "sub_prod_003",
+              "description": "Magnet Halves",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "magnet_halves_003",
+              "product_use_type": "assembled",
+              "quantity": 2
           },
           {
-            "id": "sub_prod_004",
-            "description": "Plastic Part",
-            "id_short": "PlasticPart",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "plastic_part_004",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_004",
+              "description": "Plastic Part",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "plastic_part_004",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_005",
-            "description": "Anchor",
-            "id_short": "Anchor",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "anchor_005",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_005",
+              "description": "Anchor",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "anchor_005",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_006",
-            "description": "Ring Magnet",
-            "id_short": "RingMagnet",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Magnetic Component",
-            "product_id": "ring_magnet_006",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_006",
+              "description": "Ring Magnet",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Magnetic Component",
+              "product_id": "ring_magnet_006",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_007",
-            "description": "Brush Carrier",
-            "id_short": "BrushCarrier",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "brush_carrier_007",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_007",
+              "description": "Brush Carrier",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "brush_carrier_007",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_008",
-            "description": "Housing EA",
-            "id_short": "HousingEA",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "housing_ea_008",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_008",
+              "description": "Housing EA",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "housing_ea_008",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_009",
-            "description": "Worm Wheel",
-            "id_short": "WormWheel",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "wormwheel_009",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_009",
+              "description": "Worm Wheel",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "wormwheel_009",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_010",
-            "description": "Screws",
-            "id_short": "Screws",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "screws_010",
-            "product_use_type": "assembled",
-            "quantity": 4
+              "id_short": "sub_prod_010",
+              "description": "Screws",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "screws_010",
+              "product_use_type": "assembled",
+              "quantity": 4
           },
           {
-            "id": "sub_prod_011",
-            "description": "Housing EB",
-            "id_short": "HousingEB",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "housing_eb_011",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_011",
+              "description": "Housing EB",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "housing_eb_011",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_012",
-            "description": "Gear A",
-            "id_short": "GearA",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "gear_a_012",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_012",
+              "description": "Gear A",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "gear_a_012",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_013",
-            "description": "Gear B",
-            "id_short": "GearB",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Mechanical Component",
-            "product_id": "gear_b_013",
-            "product_use_type": "assembled",
-            "quantity": 1
+              "id_short": "sub_prod_013",
+              "description": "Gear B",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Mechanical Component",
+              "product_id": "gear_b_013",
+              "product_use_type": "assembled",
+              "quantity": 1
           },
           {
-            "id": "sub_prod_014",
-            "description": "Grease",
-            "id_short": "Grease",
-            "semantic_id": "http://example.com/semantic/SubProduct",
-            "product_type": "Consumable",
-            "product_id": "grease_014",
-            "product_use_type": "consumed",
-            "quantity": 1
+              "id_short": "sub_prod_014",
+              "description": "Grease",
+              "semantic_id": "http://example.com/semantic/SubProduct",
+              "product_type": "Consumable",
+              "product_id": "grease_014",
+              "product_use_type": "consumed",
+              "quantity": 1
           }
-        ]
-    },
-        "process_reference": {
+      ]
+  },
+  "process_reference": {
       "id": "proc_ref_001",
       "description": "Primary and alternative processes for creating Bosch AHC2 Motor",
       "id_short": "ProcRef",
       "semantic_id": "http://example.com/semantic/ProcRef",
       "process_id": "process_pressen_2_3",
       "alternative_processes_ids": ["process_fugen_1", "process_fugen_1", "process_pressen_1", "process_pressen_4", "process_magnetisieren", "process_schrauben_1", "process_schrauben_2"]
-    },
-    "tracking_data": {
+  },
+  "tracking_data": {
       "id": "track_data_001",
       "description": "Tracking and execution log for Bosch AHC2 Motor",
       "id_short": "TrackData",
       "semantic_id": "http://example.com/semantic/TrackData",
       "execution_log": [
-        {
-          "id": "event_001",
-          "description": "Motor assembly completed",
-          "id_short": "Event1",
-          "semantic_id": "http://example.com/semantic/Event",
-          "time": "2024-06-01T10:00:00Z",
-          "resource_id": "res_001",
-          "procedure_id": "proc_assembly",
-          "procedure_type": "Setup",
-          "activity": "Start",
-          "product_id": "ahc2_motor_001",
-          "expected_end_time": "2024-06-01T12:00:00Z",
-          "actual_end_time": "2024-06-01T12:30:00Z",
-          "success": true
-        },
-        {
-          "id": "event_002",
-          "description": "Control unit installation completed",
-          "id_short": "Event2",
-          "semantic_id": "http://example.com/semantic/Event",
-          "time": "2024-06-02T14:30:00Z",
-          "resource_id": "res_002",
-          "procedure_id": "proc_installation",
-          "procedure_type": "Setup",
-          "activity": "End",
-          "product_id": "control_unit_001",
-          "expected_end_time": "2024-06-02T16:00:00Z",
-          "actual_end_time": "2024-06-02T15:50:00Z",
-          "success": true
-        },
-        {
-          "id": "event_003",
-          "description": "Transmission system tested",
-          "id_short": "Event3",
-          "semantic_id": "http://example.com/semantic/Event",
-          "time": "2024-06-03T09:45:00Z",
-          "resource_id": "res_003",
-          "procedure_id": "proc_testing",
-          "procedure_type": "Maintenance",
-          "activity": "Start",
-          "product_id": "transmission_001",
-          "expected_end_time": "2024-06-03T11:00:00Z",
-          "actual_end_time": "2024-06-03T11:15:00Z",
-          "success": true
-        }
+          {
+              "id": "event_001",
+              "description": "Motor assembly completed",
+              "id_short": "Event1",
+              "semantic_id": "http://example.com/semantic/Event",
+              "time": "2024-06-01T10:00:00Z",
+              "resource_id": "res_001",
+              "procedure_id": "proc_assembly",
+              "procedure_type": "Setup",
+              "activity": "Start",
+              "product_id": "ahc2_motor_001",
+              "expected_end_time": "2024-06-01T12:00:00Z",
+              "actual_end_time": "2024-06-01T12:30:00Z",
+              "success": true
+          },
+          {
+              "id": "event_002",
+              "description": "Control unit installation completed",
+              "id_short": "Event2",
+              "semantic_id": "http://example.com/semantic/Event",
+              "time": "2024-06-02T14:30:00Z",
+              "resource_id": "res_002",
+              "procedure_id": "proc_installation",
+              "procedure_type": "Setup",
+              "activity": "End",
+              "product_id": "control_unit_001",
+              "expected_end_time": "2024-06-02T16:00:00Z",
+              "actual_end_time": "2024-06-02T15:50:00Z",
+              "success": true
+          },
+          {
+              "id": "event_003",
+              "description": "Transmission system tested",
+              "id_short": "Event3",
+              "semantic_id": "http://example.com/semantic/Event",
+              "time": "2024-06-03T09:45:00Z",
+              "resource_id": "res_003",
+              "procedure_id": "proc_testing",
+              "procedure_type": "Maintenance",
+              "activity": "Start",
+              "product_id": "transmission_001",
+              "expected_end_time": "2024-06-03T11:00:00Z",
+              "actual_end_time": "2024-06-03T11:15:00Z",
+              "success": true
+          }
       ]
-    }
   }
-  
+}

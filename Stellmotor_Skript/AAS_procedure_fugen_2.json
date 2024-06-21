@@ -1,10 +1,10 @@
 {
   "id": "procedure_fugen_2",
   "description": "Fugen 2 Procedure",
-  "id_short": "Fugen_2_Procedure",
+  "id_short": "Fugen_2",
   "semantic_id": "http://example.com/semantic/Fugen_2_Procedure",
   "procedure_information": {
-    "id": "proc_info_fugen_2",
+    "id": "procedure_info_fugen_2",
     "description": "Procedure for the second joining process in the assembly sequence",
     "id_short": "SecondJoiningProcedure",
     "semantic_id": "http://example.com/semantic/SecondJoiningProcedure",

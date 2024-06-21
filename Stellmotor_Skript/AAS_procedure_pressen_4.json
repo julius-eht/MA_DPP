@@ -1,10 +1,10 @@
 {
   "id": "procedure_pressen_4",
   "description": "Pressen 4 Procedure",
-  "id_short": "Pressen_4_Procedure",
+  "id_short": "Pressen_4",
   "semantic_id": "http://example.com/semantic/Pressen_4_Procedure",
   "procedure_information": {
-    "id": "proc_info_pressen_4",
+    "id": "procedure_info_pressen_4",
     "description": "Procedure for the fourth pressing process in the assembly sequence",
     "id_short": "FourthPressingProcedure",
     "semantic_id": "http://example.com/semantic/FourthPressingProcedure",

@@ -1,10 +1,10 @@
 {
   "id": "procedure_magnetisieren",
   "description": "Magnetisieren Procedure",
-  "id_short": "Magnetisieren_Procedure",
+  "id_short": "Magnetisieren",
   "semantic_id": "http://example.com/semantic/Magnetisieren_Procedure",
   "procedure_information": {
-    "id": "proc_info_magnetisieren",
+    "id": "procedure_info_magnetisieren",
     "description": "Procedure for the magnetization process in the assembly sequence",
     "id_short": "MagnetizingProcedure",
     "semantic_id": "http://example.com/semantic/MagnetizingProcedure",

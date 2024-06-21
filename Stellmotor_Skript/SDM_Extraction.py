@@ -162,7 +162,7 @@ if __name__ == "__main__":
 
     # Check if all uploads were successful
     check_uploads(post_results)
-    """
+
     # Retrieve attached procedures for the given product
     product_id = "product_001"  # Adjust to your product ID
     attached_procedures_data = retrieve_attached_procedures(product_id)
@@ -173,5 +173,3 @@ if __name__ == "__main__":
         save_procedures(attached_procedures_data)
 
     print("Script execution completed.")
-
-    """
