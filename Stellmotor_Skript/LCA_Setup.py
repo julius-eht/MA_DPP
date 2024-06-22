@@ -1,3 +1,4 @@
+import os
 import json
 import pandas as pd
 import olca_ipc as ipc
@@ -7,8 +8,8 @@ from typing import Callable
 from openpyxl import Workbook
 
 # Paths to the data files
-product_json_path = r'C:\Users\juliu\OneDrive\Desktop\Arbeitsdatein MA Skript\AAS_motor_example.json'
-procedures_json_path = r'C:\Users\juliu\OneDrive\Desktop\Arbeitsdatein MA Skript\AAS_list_procedure.json'
+product_json_path =os.path.join('Stellmotor_Skript', 'Input_Files', 'AAS_motor_example.json')
+procedures_json_path = os.path.join('Stellmotor_Skript', 'Output', 'attached_procedures.json')
 bom_excel_path = r'C:\Users\juliu\OneDrive\Desktop\Arbeitsdatein MA Skript\24-06-20_Supplementary Excel.xlsx'
 
 # Initialize the IPC client for openLCA
@@ -157,17 +158,6 @@ client.put(process)
 # Initialize total power consumption
 total_power_consumption = 0.0
 
-# Assume power_input_data is a list of procedures each containing a 'power_consumption' field, calculate value for later insertion into process
-for procedure in procedure_data:
-    # Ensure 'procedure_emission' exists and has 'power_consumption'
-    if 'procedure_emission' in procedure and 'power_consumption' in procedure['procedure_emission']:
-        power_consumption = procedure['procedure_emission']['power_consumption']
-        total_power_consumption += power_consumption
-    else:
-        print(f"No power consumption data available for procedure: {procedure['id_short']}")
-
-print(f"Total power consumption from all procedures: {total_power_consumption} kWh")
-
 # Fetch the overall motor process object using its ID
 overall_process = client.get(o.Process, process_dict[overall_motor_name])
 
@@ -196,22 +186,6 @@ for sub_product in motor_data['bom']['sub_products']:
 
         print(f"Set input for overall motor process: {overall_process.name} to flow: {sub_product_flow.name} with quantity: {items_per_motor}")
 
-# Add Power Consumption Flow
-power_flow = client.get(o.Flow, uid="4f19a2f2-7b3b-11dd-ad8b-0800200c9a66")
-
-if power_flow:
-    # Create the input flow for the overall motor process with only the electrical power from before
-    power_exchange = o.Exchange()
-    power_exchange.flow = power_flow
-    power_exchange.amount = total_power_consumption
-    power_exchange.unit = unit_kWh[0]
-    power_exchange.is_input = True  # Indicate that this is an input exchange
-
-    # Append the input exchange to the list of input exchanges
-    input_exchanges.append(power_exchange)
-
-    print(f"Set input for overall motor process: {overall_process.name} to flow: {power_flow.name} with quantity: {total_power_consumption} kWh")
-
 # Retrieve existing exchanges and add new input exchanges
 if overall_process.exchanges:
     # Filter out existing inputs (if any) to avoid duplication
@@ -227,68 +201,5 @@ overall_process.exchanges = combined_exchanges
 
 # Update the overall motor process with the combined exchanges
 client.put(overall_process)
-print(f"All component and energy flows have been set as input flows for the overall motor process: {overall_process.name}")
-
-# Build Product System
-overall_process_ref = client.find(o.Process, motor_process_name)
-config = o.LinkingConfig(
-    prefer_unit_processes=False,
-    provider_linking=o.ProviderLinking.PREFER_DEFAULTS,
-)
-overall_product_system = client.create_product_system(overall_process_ref,config)
-
-# Conduct the acutal LCA
-# Select the impact method
-impact_method = "83812f2a-8272-3244-91a5-20ca745f0902"
-
-# create a calculation setup
-setup = o.CalculationSetup(
-    target=o.Ref(
-        ref_type=o.RefType.ProductSystem,
-        id= overall_product_system.id,
-    ),
-    impact_method=o.Ref(id=impact_method),
-    nw_set= None,
-    amount= 10.0
-)
-
-# run a calculation
-result: ipc.Result = client.calculate(setup)
-result.wait_until_ready()
-
-#Save the results
-# Check if there was an error in the result
-# Check for errors
-if result.error:
-    print(f"Error during calculation: {result.error}")
-else:
-    # Extract Total Impacts
-    total_impacts_data = []
-    for impact_value in result.get_total_impacts():
-        total_impacts_data.append({
-            "Impact Category": impact_value.impact_category.name,
-            "Amount": impact_value.amount,
-        })
-    df_total_impacts = pd.DataFrame(total_impacts_data)
-    
-    # Extract Tech Flows
-    tech_flows_data = []
-    for tech_flow in result.get_tech_flows():
-        tech_flows_data.append({
-            "Flow Name": tech_flow.flow.name,
-        })
-    df_tech_flows = pd.DataFrame(tech_flows_data)
-    
-    # Extract Environmental Flows
-    envi_flows_data = []
-    for envi_flow in result.get_envi_flows():
-        envi_flows_data.append({
-            "Flow Name": envi_flow.flow.name,
-        })
-    df_envi_flows = pd.DataFrame(envi_flows_data)
-
-    # Define the path to save the Excel file
-    excel_file_path = r'C:\Users\juliu\OneDrive\Desktop\Arbeitsdatein MA Skript'
-
-    print(df_total_impacts,df_tech_flows,df_envi_flows)
+print(f"All component have been set as input flows for the overall motor process: {overall_process.name}")
 

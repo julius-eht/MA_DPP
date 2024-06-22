@@ -1,8 +1,6 @@
 import typing
 import aas2openapi
 from aas2openapi.middleware import Middleware
-from aas2openapi import models
-from enum import Enum
 
 from models.product import (
         ProcessReference,

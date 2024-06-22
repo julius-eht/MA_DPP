@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+from datetime import datetime
 
 # Define the base URL for the server
 BASE_URL = "http://127.0.0.1:8000"
@@ -26,23 +27,23 @@ headers = {
 
 # List of JSON files with corrected names to post
 JSON_FILES = [
-    "AAS_motor_example.json",
-    "AAS_process_pressen_1.json",
-    "AAS_process_pressen_2_3.json",
-    "AAS_process_pressen_4.json",
-    "AAS_process_magnetisieren.json",
-    "AAS_process_fugen_1.json",
-    "AAS_process_fugen_2.json",
-    "AAS_process_schrauben_1.json",
-    "AAS_process_schrauben_2.json",
-    "AAS_procedure_pressen_1.json",
-    "AAS_procedure_pressen_2_3.json",
-    "AAS_procedure_pressen_4.json",
-    "AAS_procedure_magnetisieren.json",
-    "AAS_procedure_fugen_1.json",
-    "AAS_procedure_fugen_2.json",
-    "AAS_procedure_schrauben_1.json",
-    "AAS_procedure_schrauben_2.json"
+    "Input_Files\AAS_motor_example.json",
+    "Input_Files\AAS_process_pressen_1.json",
+    "Input_Files\AAS_process_pressen_2_3.json",
+    "Input_Files\AAS_process_pressen_4.json",
+    "Input_Files\AAS_process_magnetisieren.json",
+    "Input_Files\AAS_process_fugen_1.json",
+    "Input_Files\AAS_process_fugen_2.json",
+    "Input_Files\AAS_process_schrauben_1.json",
+    "Input_Files\AAS_process_schrauben_2.json",
+    "Input_Files\AAS_procedure_pressen_1.json",
+    "Input_Files\AAS_procedure_pressen_2_3.json",
+    "Input_Files\AAS_procedure_pressen_4.json",
+    "Input_Files\AAS_procedure_magnetisieren.json",
+    "Input_Files\AAS_procedure_fugen_1.json",
+    "Input_Files\AAS_procedure_fugen_2.json",
+    "Input_Files\AAS_procedure_schrauben_1.json",
+    "Input_Files\AAS_procedure_schrauben_2.json"
 ]
 
 # Function to post JSON data
@@ -149,10 +150,25 @@ def retrieve_attached_procedures(product_id):
     return procedure_responses
 
 
-# Save the retrieved procedure data to a JSON file
-def save_procedures(data, file_path="C:\Users\juliu\OneDrive\Dokumente\GitHub\MA_DPP\Stellmotor_Skript\Output\attached_procedures.json"):
+# Define a relative file path
+default_file_path = os.path.join('Stellmotor_Skript', 'Output', 'attached_procedures.json')
+
+def save_procedures(data, file_path=default_file_path):
+    # Ensure the directory exists or create it
+    directory = os.path.dirname(file_path)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    
+    # Create a unique file name if the file already exists
+    if os.path.exists(file_path):
+        base, ext = os.path.splitext(file_path)
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        file_path = f"{base}_{timestamp}{ext}"
+    
+    # Save the data to the JSON file
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
+    
     print(f"Attached procedures data saved to {file_path}")
 
 # Main execution
