@@ -150,7 +150,7 @@ def retrieve_attached_procedures(product_id):
 
 
 # Save the retrieved procedure data to a JSON file
-def save_procedures(data, file_path="attached_procedures.json"):
+def save_procedures(data, file_path="C:\Users\juliu\OneDrive\Dokumente\GitHub\MA_DPP\Stellmotor_Skript\Output\attached_procedures.json"):
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
     print(f"Attached procedures data saved to {file_path}")
