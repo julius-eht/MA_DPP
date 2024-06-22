@@ -51,6 +51,26 @@ def insert_data(conn, id, product_name, description, id_short, impact_category, 
     # Commit the transaction
     conn.commit()
 
+def fetch_first_row(conn):
+    cursor = conn.cursor()
+    
+    # Define the SQL query to fetch the first row from the products table
+    fetch_query = '''
+    SELECT * FROM public.products LIMIT 1;
+    '''
+    
+    # Execute the query
+    cursor.execute(fetch_query)
+    
+    # Fetch the result
+    first_row = cursor.fetchone()
+    
+    # Print the result
+    print("First row:", first_row)
+
+    # Optionally return the first row for further processing
+    return first_row
+
 if __name__ == "__main__":
     # Connect to the database
     connection = connect_to_db()
@@ -59,9 +79,12 @@ if __name__ == "__main__":
     create_table(connection)
     
     # Insert sample data into the public schema
-    insert_data(connection, "product_001", "Bosch ACH2 Stellmotor", "Stellmotor", "p_01", "Global warming (GWP100a)", 23.3, "kg CO2 eq")
+    insert_data(connection, 1, "Bosch ACH2 Stellmotor", "Stellmotor", "p_01", "Global warming (GWP100a)", 23.3, "kg CO2 eq")
     
     print("Sample data inserted successfully.")
+    
+    # Fetch and print the first row from the table
+    first_row = fetch_first_row(connection)
     
     # Close the connection
     connection.close()
