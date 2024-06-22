@@ -5,7 +5,7 @@ def connect_to_db():
     # Define your connection details
     conn = psycopg2.connect(
         dbname="lca_database",
-        user="lca_user",
+        user="postgres",
         password="123456789",
         host="localhost",  # or your database server address
         port="5432"        # default port for PostgreSQL
@@ -16,9 +16,9 @@ def create_table(conn):
     # Create a cursor object using the connection
     cursor = conn.cursor()
     
-    # Define the SQL query to create a new table
+    # Define the SQL query to create a new table in the public schema
     create_table_query = '''
-    CREATE TABLE IF NOT EXISTS lca_schema.products (
+    CREATE TABLE IF NOT EXISTS products (
         id VARCHAR(255) PRIMARY KEY,
         product_name VARCHAR(255),
         description TEXT,
@@ -38,9 +38,9 @@ def create_table(conn):
 def insert_data(conn, id, product_name, description, id_short, impact_category, impact_amount, impact_unit):
     cursor = conn.cursor()
     
-    # Define the SQL query to insert data
+    # Define the SQL query to insert data into the public schema
     insert_query = sql.SQL('''
-    INSERT INTO products (id, product_name, description, id_short, impact_category, impact_amount, impact_unit)
+    INSERT INTO public.products (id, product_name, description, id_short, impact_category, impact_amount, impact_unit)
     VALUES (%s, %s, %s, %s, %s, %s, %s)
     ON CONFLICT (id) DO NOTHING;  -- Avoid inserting duplicate IDs
     ''')
@@ -55,10 +55,10 @@ if __name__ == "__main__":
     # Connect to the database
     connection = connect_to_db()
     
-    # Create the table
+    # Create the table in the public schema
     create_table(connection)
     
-    # Insert sample data
+    # Insert sample data into the public schema
     insert_data(connection, "product_001", "Bosch ACH2 Stellmotor", "Stellmotor", "p_01", "Global warming (GWP100a)", 23.3, "kg CO2 eq")
     
     print("Sample data inserted successfully.")
