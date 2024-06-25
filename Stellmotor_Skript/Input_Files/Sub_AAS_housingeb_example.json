@@ -1,0 +1,26 @@
+{
+  "id": "housing_eb_001",
+  "description": "housing_eb for Bosch AHC2 Motor",
+  "id_short": "housing_eb_AHC2_Motor",
+  "semantic_id": "http://example.com/semantic/housing_eb",
+  "product_information": {
+      "id": "housing_eb_prod_info_001",
+      "description": "Bosch AHC2 DC motor housing_eb",
+      "id_short": "housing_eb_AHC2_Info",
+      "semantic_id": "http://example.com/semantic/housing_eb_AHC2_Info",
+      "product_type": "housing_eb for AHC2",
+      "manufacturer": "Supplier",
+      "maintenance_manual": "http://bosch-ibusiness.com/manuals/AHC2_maintenance.pdf",
+      "operating_manual": "http://bosch-ibusiness.com/manuals/AHC2_operating.pdf",
+      "disassembly_manual": "http://bosch-ibusiness.com/manuals/AHC2_disassembly.pdf",
+      "green_house_gas_emission": {
+          "id": "housing_eb_ghg_001",
+          "description": "Greenhouse gas emissions for the manufacturing process incl. transport",
+          "id_short": "GHGEmission",
+          "semantic_id": "http://example.com/semantic/GHGEmission",
+          "emission_scope_one": null,
+          "emission_scope_two": null,
+          "emission_scope_three": null
+      }
+  }
+ }

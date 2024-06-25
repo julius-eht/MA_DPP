@@ -1,0 +1,26 @@
+{
+  "id": "clamps_001",
+  "description": "Clamps for Bosch AHC2 Motor",
+  "id_short": "Clamps_AHC2_Motor",
+  "semantic_id": "http://example.com/semantic/CLamps",
+  "product_information": {
+      "id": "Clamps_prod_info_001",
+      "description": "Bosch AHC2 DC motor Clamps",
+      "id_short": "Clamps_AHC2_Info",
+      "semantic_id": "http://example.com/semantic/Clamps_AHC2_Info",
+      "product_type": "CLamps for AHC2",
+      "manufacturer": "Supplier",
+      "maintenance_manual": "http://bosch-ibusiness.com/manuals/AHC2_maintenance.pdf",
+      "operating_manual": "http://bosch-ibusiness.com/manuals/AHC2_operating.pdf",
+      "disassembly_manual": "http://bosch-ibusiness.com/manuals/AHC2_disassembly.pdf",
+      "green_house_gas_emission": {
+          "id": "clamps_ghg_001",
+          "description": "Greenhouse gas emissions for the manufacturing process incl. transport",
+          "id_short": "GHGEmission",
+          "semantic_id": "http://example.com/semantic/GHGEmission",
+          "emission_scope_one": null,
+          "emission_scope_two": null,
+          "emission_scope_three": null
+      }
+  }
+ }

@@ -1,0 +1,26 @@
+{
+  "id": "grease_001",
+  "description": "grease for Bosch AHC2 Motor",
+  "id_short": "grease_AHC2_Motor",
+  "semantic_id": "http://example.com/semantic/grease",
+  "product_information": {
+      "id": "grease_prod_info_001",
+      "description": "Bosch AHC2 DC motor grease",
+      "id_short": "grease_AHC2_Info",
+      "semantic_id": "http://example.com/semantic/grease_AHC2_Info",
+      "product_type": "grease for AHC2",
+      "manufacturer": "Supplier",
+      "maintenance_manual": "http://bosch-ibusiness.com/manuals/AHC2_maintenance.pdf",
+      "operating_manual": "http://bosch-ibusiness.com/manuals/AHC2_operating.pdf",
+      "disassembly_manual": "http://bosch-ibusiness.com/manuals/AHC2_disassembly.pdf",
+      "green_house_gas_emission": {
+          "id": "grease_ghg_001",
+          "description": "Greenhouse gas emissions for the manufacturing process incl. transport",
+          "id_short": "GHGEmission",
+          "semantic_id": "http://example.com/semantic/GHGEmission",
+          "emission_scope_one": null,
+          "emission_scope_two": null,
+          "emission_scope_three": null
+      }
+  }
+ }

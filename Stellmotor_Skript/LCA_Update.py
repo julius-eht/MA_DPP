@@ -114,7 +114,7 @@ else:
 
 # Conduct the actual LCA
 # Select the impact method
-impact_method = "83812f2a-8272-3244-91a5-20ca745f0902"
+impact_method = "787c02f1-d1f2-36d6-8e06-2307cc3ebebc"
 
 # create a calculation setup
 setup = o.CalculationSetup(

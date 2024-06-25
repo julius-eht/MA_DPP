@@ -34,7 +34,7 @@
             "description": "{'en': 'Emission details for Pressen 1 procedure'}",
             "id": "proc_emission_pressen_1",
             "semantic_id": "http://example.com/semantic/Pressen_1_Emission",
-            "power_consumption": 100.1,
+            "power_consumption": 0.1,
             "green_house_gas_emission": null
         }
     },
