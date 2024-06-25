@@ -99,6 +99,7 @@ existing_product_system = client.find(o.ProductSystem, name=overall_motor_name)
 
 if existing_product_system:
     print(f"Product system '{overall_motor_name}' already exists. No new product system will be created.")
+    calculate_product_system = existing_product_system
 else:
     # Create a linking configuration for the product system
     config = o.LinkingConfig(
@@ -109,8 +110,9 @@ else:
     # Create the product system using the overall motor process as the root
     overall_product_system = client.create_product_system(overall_process, config)
     print(f"Created new product system: {overall_motor_name} with ID: {overall_product_system.id}")
+    calculate_product_system = overall_product_system
 
-# Conduct the acutal LCA
+# Conduct the actual LCA
 # Select the impact method
 impact_method = "83812f2a-8272-3244-91a5-20ca745f0902"
 
@@ -118,7 +120,7 @@ impact_method = "83812f2a-8272-3244-91a5-20ca745f0902"
 setup = o.CalculationSetup(
     target=o.Ref(
         ref_type=o.RefType.ProductSystem,
-        id= overall_product_system.id,
+        id= calculate_product_system.id,
     ),
     impact_method=o.Ref(id=impact_method),
     nw_set= None,

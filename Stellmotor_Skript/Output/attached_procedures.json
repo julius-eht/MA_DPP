@@ -17,7 +17,7 @@
             "semantic_id": "http://example.com/semantic/Pressen_1_Attributes",
             "process_attributes": [
                 {
-                    "id_short": "generated_submodel_list_hack_e5cf6ec0307f11ef80006ca1005eaa89",
+                    "id_short": "generated_submodel_list_hack_2aa10f0232d611ef80006ca1005eaa89",
                     "description": "",
                     "semantic_id": "",
                     "attribute_carrier": "Pressen_1",
@@ -34,7 +34,7 @@
             "description": "{'en': 'Emission details for Pressen 1 procedure'}",
             "id": "proc_emission_pressen_1",
             "semantic_id": "http://example.com/semantic/Pressen_1_Emission",
-            "power_consumption": 0.1,
+            "power_consumption": 100.1,
             "green_house_gas_emission": null
         }
     },
@@ -56,7 +56,7 @@
             "semantic_id": "http://example.com/semantic/Pressen_Attributes",
             "process_attributes": [
                 {
-                    "id_short": "generated_submodel_list_hack_e7418aae307f11ef80006ca1005eaa89",
+                    "id_short": "generated_submodel_list_hack_2bc0629032d611ef80006ca1005eaa89",
                     "description": "",
                     "semantic_id": "",
                     "attribute_carrier": "Pressen_2_3",
@@ -95,7 +95,7 @@
             "semantic_id": "http://example.com/semantic/Pressen_4_Attributes",
             "process_attributes": [
                 {
-                    "id_short": "generated_submodel_list_hack_e86be3a6307f11ef80006ca1005eaa89",
+                    "id_short": "generated_submodel_list_hack_2cdd58b732d611ef80006ca1005eaa89",
                     "description": "",
                     "semantic_id": "",
                     "attribute_carrier": "Pressen_4",
@@ -134,7 +134,7 @@
             "semantic_id": "http://example.com/semantic/Magnetisieren_Attributes",
             "process_attributes": [
                 {
-                    "id_short": "generated_submodel_list_hack_e98b732c307f11ef80006ca1005eaa89",
+                    "id_short": "generated_submodel_list_hack_2e0bda9632d611ef80006ca1005eaa89",
                     "description": "",
                     "semantic_id": "",
                     "attribute_carrier": "Magnetisieren",
@@ -173,7 +173,7 @@
             "semantic_id": "http://example.com/semantic/Fugen_1_Attributes",
             "process_attributes": [
                 {
-                    "id_short": "generated_submodel_list_hack_eb30e3e2307f11ef80006ca1005eaa89",
+                    "id_short": "generated_submodel_list_hack_2f8591eb32d611ef80006ca1005eaa89",
                     "description": "",
                     "semantic_id": "",
                     "attribute_carrier": "Fugen_1",
@@ -212,7 +212,7 @@
             "semantic_id": "http://example.com/semantic/Schrauben_1_Attributes",
             "process_attributes": [
                 {
-                    "id_short": "generated_submodel_list_hack_ed206d2c307f11ef80006ca1005eaa89",
+                    "id_short": "generated_submodel_list_hack_3116b46032d611ef80006ca1005eaa89",
                     "description": "",
                     "semantic_id": "",
                     "attribute_carrier": "Schrauben_1",
@@ -251,7 +251,7 @@
             "semantic_id": "http://example.com/semantic/Fugen_2_Attributes",
             "process_attributes": [
                 {
-                    "id_short": "generated_submodel_list_hack_ee1fb262307f11ef80006ca1005eaa89",
+                    "id_short": "generated_submodel_list_hack_3238701632d611ef80006ca1005eaa89",
                     "description": "",
                     "semantic_id": "",
                     "attribute_carrier": "Fugen_2",
@@ -290,7 +290,7 @@
             "semantic_id": "http://example.com/semantic/Schrauben_2_Attributes",
             "process_attributes": [
                 {
-                    "id_short": "generated_submodel_list_hack_efa2b8cc307f11ef80006ca1005eaa89",
+                    "id_short": "generated_submodel_list_hack_336e3b5832d611ef80006ca1005eaa89",
                     "description": "",
                     "semantic_id": "",
                     "attribute_carrier": "Schrauben_2",
