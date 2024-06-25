@@ -36,27 +36,26 @@ JSON_FILES = [
     "Input_Files/AAS_process_fugen_2.json",
     "Input_Files/AAS_process_schrauben_1.json",
     "Input_Files/AAS_process_schrauben_2.json",
-    "Input_Files/AAS_process_pressen_1.json",
-    "Input_Files/AAS_process_pressen_2_3.json",
-    "Input_Files/AAS_process_pressen_4.json",
-    "Input_Files/AAS_process_fugen_1.json",
+    "Input_Files/AAS_procedure_pressen_1.json",
+    "Input_Files/AAS_procedure_pressen_2_3.json",
+    "Input_Files/AAS_procedure_pressen_4.json",
     "Input_Files/AAS_procedure_magnetisieren.json",
     "Input_Files/AAS_procedure_fugen_1.json",
     "Input_Files/AAS_procedure_fugen_2.json",
     "Input_Files/AAS_procedure_schrauben_1.json",
     "Input_Files/AAS_procedure_schrauben_2.json",
-    "Input_Files/AAS_procedure_fugen_2.json",
     "Input_Files/Sub_AAS_anchor_example.json",
-    "Input_Files/Sub_AAS_barbar_example.json",
-    "Input_Files/Sub_AAS_battery_example.json",
-    "Input_Files/Sub_AAS_gear_example.json",
-    "Input_Files/Sub_AAS_gerab_example.json",
-    "Input_Files/Sub_AAS_housing_example.json",
-    "Input_Files/Sub_AAS_magnethe_example.json",
-    "Input_Files/Sub_AAS_motor_example.json",
-    "Input_Files/Sub_AAS_pilot_example.json",
-    "Input_Files/Sub_AAS_plato_example.json",
-    "Input_Files/Sub_AAS_screw_example.json",
+    "Input_Files/Sub_AAS_brushcarrier_example.json",
+    "Input_Files/Sub_AAS_clamps_example.json",
+    "Input_Files/Sub_AAS_geara_example.json",
+    "Input_Files/Sub_AAS_gearb_example.json",
+    "Input_Files/Sub_AAS_housingea_example.json",
+    "Input_Files/Sub_AAS_housingeb_example.json",
+    "Input_Files/Sub_AAS_magnethalves_example.json",
+    "Input_Files/Sub_AAS_plasticpart_example.json",
+    "Input_Files/Sub_AAS_poltopf_example.json",
+    "Input_Files/Sub_AAS_ringmagnet_example.json",
+    "Input_Files/Sub_AAS_screws_example.json",
     "Input_Files/Sub_AAS_wormwheel_example.json"
 ]
 
@@ -75,6 +74,8 @@ def post_all_jsons():
     for json_file in JSON_FILES:
         # Determine the path based on the JSON file name
         if "motor" in json_file:
+            path = PATHS["Product"]
+        elif "Sub_" in json_file:
             path = PATHS["Product"]
         elif "process" in json_file:
             path = PATHS["Process"]
