@@ -13,7 +13,7 @@ procedures_json_path = os.path.join('Stellmotor_Skript', 'Output', 'attached_pro
 bom_excel_path = r'C:\Users\juliu\OneDrive\Desktop\Arbeitsdatein MA Skript\24-06-20_Supplementary Excel.xlsx'
 
 # Initialize the IPC client for openLCA
-client = ipc.Client(8080)
+client = ipc.Client(8083)
 
 # Load the product information from the JSON file
 with open(product_json_path) as f:
@@ -122,84 +122,5 @@ for sub_product in motor_data['bom']['sub_products']:
         print(f"Flow ID or weight not found for process: {process_name}")
 
 print("All processes have been updated with their respective input flows.")
-
-# Create Flow for the overall motor using the extracted name
-flow_name = overall_motor_name  # Use the overall description
-flow = o.new_flow(flow_name, o.FlowType.PRODUCT_FLOW, items)
-flow.id = str(uuid.uuid4())  # Generate a unique ID for the flow
-flow.category = "Stellmotor_Skript"
-flow.flow_type = o.FlowType.PRODUCT_FLOW
-client.put(flow)
-flow_dict[flow_name] = flow.id  # Store the flow ID by name
-print(f"Created flow: {flow.name} with ID: {flow.id}")
-
-# Create Process for the overall motor using the extracted name
-motor_process_name = overall_motor_name  # Use the overall description
-motor_process = new_process(motor_process_name)
-motor_process.id = str(uuid.uuid4())  # Generate a unique ID for the process
-motor_process.category = "Stellmotor_Skript"
-client.put(motor_process)
-process_dict[motor_process_name] = motor_process.id  # Store the process ID by name
-print(f"Created process: {motor_process.name} with ID: {motor_process.id}")
-
-# Set the output for the over motor process
-process_name = motor_process_name
-flow_id = flow_dict[process_name]
-process_id = process_dict[process_name]
-flow = client.get(o.Flow, flow_id)
-process = client.get(o.Process, process_id)
-output = o.new_output(process, flow, amount=1, unit=items)
-output.is_quantitative_reference = True
-print(f"Set output for process: {process.name} to flow: {flow.name}")
-
-# Update the process with the new output
-client.put(process)
-
-# Initialize total power consumption
-total_power_consumption = 0.0
-
-# Fetch the overall motor process object using its ID
-overall_process = client.get(o.Process, process_dict[overall_motor_name])
-
-# Initialize the list of input exchanges for the overall motor process
-input_exchanges = []
-
-# Set component flows as input flows for the overall motor
-for sub_product in motor_data['bom']['sub_products']:
-    sub_product_name = sub_product['description']
-    flow_id = flow_dict.get(sub_product_name)
-    items_per_motor = items_per_motor_mapping.get(sub_product_name, 1)  # Default to 1 if not found
-
-    if flow_id and items_per_motor:
-        # Fetch the flow object using its ID
-        sub_product_flow = client.get(o.Flow, flow_id)
-        
-        # Create the input flow for the overall motor process
-        input_exchange = o.Exchange()
-        input_exchange.flow = sub_product_flow
-        input_exchange.amount = items_per_motor
-        input_exchange.unit = unit_items[0]
-        input_exchange.is_input = True  # Indicate that this is an input exchange
-
-        # Append the input exchange to the list of input exchanges
-        input_exchanges.append(input_exchange)
-
-        print(f"Set input for overall motor process: {overall_process.name} to flow: {sub_product_flow.name} with quantity: {items_per_motor}")
-
-# Retrieve existing exchanges and add new input exchanges
-if overall_process.exchanges:
-    # Filter out existing inputs (if any) to avoid duplication
-    existing_exchanges = [ex for ex in overall_process.exchanges if not ex.is_input]
-else:
-    existing_exchanges = []
-
-# Combine existing exchanges with the new input exchanges
-combined_exchanges = existing_exchanges + input_exchanges
-
-# Assign the combined list of exchanges back to the overall motor process
-overall_process.exchanges = combined_exchanges
-
-# Update the overall motor process with the combined exchanges
-client.put(overall_process)
-print(f"All component have been set as input flows for the overall motor process: {overall_process.name}")
+print("Supply Chain Flows and Processes Set Up")
 

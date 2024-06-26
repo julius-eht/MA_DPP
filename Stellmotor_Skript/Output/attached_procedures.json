@@ -1,314 +1,314 @@
 [
     {
-        "id_short": "Pressen_1",
-        "description": "{'en': 'Pressen 1 Procedure'}",
-        "id": "procedure_pressen_1",
-        "procedure_information": {
-            "id_short": "FirstPressingProcedure",
-            "description": "{'en': 'Procedure for the first pressing process in the assembly sequence'}",
-            "id": "procedure_info_pressen_1",
-            "semantic_id": "http://example.com/semantic/FirstPressingProcedure",
-            "procedure_type": "Production"
-        },
-        "process_attributes": {
-            "id_short": "Pressen_1_Attributes",
-            "description": "{'en': 'Attributes for the Pressen 1 process'}",
-            "id": "proc_attr_pressen_1",
-            "semantic_id": "http://example.com/semantic/Pressen_1_Attributes",
-            "process_attributes": [
-                {
-                    "id_short": "generated_submodel_list_hack_2aa10f0232d611ef80006ca1005eaa89",
-                    "description": "",
-                    "semantic_id": "",
-                    "attribute_carrier": "Pressen_1",
-                    "general_attribute": "Pressure",
-                    "predicate_type": "within_range",
-                    "attribute_value": "120-250 PSI"
-                }
-            ]
-        },
-        "execution_model": null,
-        "time_model": null,
-        "procedure_emission": {
-            "id_short": "Pressen_1_Emission",
-            "description": "{'en': 'Emission details for Pressen 1 procedure'}",
-            "id": "proc_emission_pressen_1",
-            "semantic_id": "http://example.com/semantic/Pressen_1_Emission",
-            "power_consumption": 0.1,
-            "green_house_gas_emission": null
-        }
+      "id_short": "Fugen_1",
+      "description": "{'en': 'Fugen 1 Procedure'}",
+      "id": "procedure_fugen_1",
+      "procedure_information": {
+        "id_short": "FirstJoiningProcedure",
+        "description": "{'en': 'Procedure for the first joining process in the assembly sequence'}",
+        "id": "procedure_info_fugen_1",
+        "semantic_id": "http://example.com/semantic/FirstJoiningProcedure",
+        "procedure_type": "Production"
+      },
+      "process_attributes": {
+        "id_short": "Fugen_1_Attributes",
+        "description": "{'en': 'Attributes for the Fugen 1 process'}",
+        "id": "proc_attr_fugen_1",
+        "semantic_id": "http://example.com/semantic/Fugen_1_Attributes",
+        "process_attributes": [
+          {
+            "id_short": "generated_submodel_list_hack_b485c70033ac11ef80006ca1005eaa89",
+            "description": "",
+            "semantic_id": "",
+            "attribute_carrier": "Fugen_1",
+            "general_attribute": "Positioning Accuracy",
+            "predicate_type": "requires_to_be",
+            "attribute_value": "Aligned within 0.1 mm tolerance"
+          }
+        ]
+      },
+      "execution_model": null,
+      "time_model": null,
+      "procedure_emission": {
+        "id_short": "Fugen_1_Emission",
+        "description": "{'en': 'Emission details for Fugen 1 procedure'}",
+        "id": "proc_emission_fugen_1",
+        "semantic_id": "http://example.com/semantic/Fugen_1_Emission",
+        "power_consumption": 0.1,
+        "green_house_gas_emission": null
+      }
     },
     {
-        "id_short": "Pressen_2_3",
-        "description": "{'en': 'Pressen 2/3 Procedure'}",
-        "id": "procedure_pressen_2_3",
-        "procedure_information": {
-            "id_short": "SecondThirdPressingProcedure",
-            "description": "{'en': 'Procedure for the second and third pressing process in the assembly sequence'}",
-            "id": "procedure_info_pressen_2_3",
-            "semantic_id": "http://example.com/semantic/SecondThirdPressingProcedure",
-            "procedure_type": "Production"
-        },
-        "process_attributes": {
-            "id_short": "Pressen_Attributes",
-            "description": "{'en': 'Attributes for the Pressen 2/3 process'}",
-            "id": "proc_attr_pressen_2_3",
-            "semantic_id": "http://example.com/semantic/Pressen_Attributes",
-            "process_attributes": [
-                {
-                    "id_short": "generated_submodel_list_hack_2bc0629032d611ef80006ca1005eaa89",
-                    "description": "",
-                    "semantic_id": "",
-                    "attribute_carrier": "Pressen_2_3",
-                    "general_attribute": "Pressure",
-                    "predicate_type": "within_range",
-                    "attribute_value": "100-200 PSI"
-                }
-            ]
-        },
-        "execution_model": null,
-        "time_model": null,
-        "procedure_emission": {
-            "id_short": "Pressen_2_3_Emission",
-            "description": "{'en': 'Emission details for Pressen 2/3 procedure'}",
-            "id": "proc_emission_pressen_2_3",
-            "semantic_id": "http://example.com/semantic/Pressen_2_3_Emission",
-            "power_consumption": 0.1,
-            "green_house_gas_emission": null
-        }
+      "id_short": "Fugen_2",
+      "description": "{'en': 'Fugen 2 Procedure'}",
+      "id": "procedure_fugen_2",
+      "procedure_information": {
+        "id_short": "SecondJoiningProcedure",
+        "description": "{'en': 'Procedure for the second joining process in the assembly sequence'}",
+        "id": "procedure_info_fugen_2",
+        "semantic_id": "http://example.com/semantic/SecondJoiningProcedure",
+        "procedure_type": "Production"
+      },
+      "process_attributes": {
+        "id_short": "Fugen_2_Attributes",
+        "description": "{'en': 'Attributes for the Fugen 2 process'}",
+        "id": "proc_attr_fugen_2",
+        "semantic_id": "http://example.com/semantic/Fugen_2_Attributes",
+        "process_attributes": [
+          {
+            "id_short": "generated_submodel_list_hack_b559a45733ac11ef80006ca1005eaa89",
+            "description": "",
+            "semantic_id": "",
+            "attribute_carrier": "Fugen_2",
+            "general_attribute": "Positioning Accuracy",
+            "predicate_type": "requires_to_be",
+            "attribute_value": "Aligned within 0.5 mm tolerance"
+          }
+        ]
+      },
+      "execution_model": null,
+      "time_model": null,
+      "procedure_emission": {
+        "id_short": "Fugen_2_Emission",
+        "description": "{'en': 'Emission details for Fugen 2 procedure'}",
+        "id": "proc_emission_fugen_2",
+        "semantic_id": "http://example.com/semantic/Fugen_2_Emission",
+        "power_consumption": 0.5,
+        "green_house_gas_emission": null
+      }
     },
     {
-        "id_short": "Pressen_4",
-        "description": "{'en': 'Pressen 4 Procedure'}",
-        "id": "procedure_pressen_4",
-        "procedure_information": {
-            "id_short": "FourthPressingProcedure",
-            "description": "{'en': 'Procedure for the fourth pressing process in the assembly sequence'}",
-            "id": "procedure_info_pressen_4",
-            "semantic_id": "http://example.com/semantic/FourthPressingProcedure",
-            "procedure_type": "Production"
-        },
-        "process_attributes": {
-            "id_short": "Pressen_4_Attributes",
-            "description": "{'en': 'Attributes for the Pressen 4 process'}",
-            "id": "proc_attr_pressen_4",
-            "semantic_id": "http://example.com/semantic/Pressen_4_Attributes",
-            "process_attributes": [
-                {
-                    "id_short": "generated_submodel_list_hack_2cdd58b732d611ef80006ca1005eaa89",
-                    "description": "",
-                    "semantic_id": "",
-                    "attribute_carrier": "Pressen_4",
-                    "general_attribute": "Pressure",
-                    "predicate_type": "within_range",
-                    "attribute_value": "150-300 PSI"
-                }
-            ]
-        },
-        "execution_model": null,
-        "time_model": null,
-        "procedure_emission": {
-            "id_short": "Pressen_4_Emission",
-            "description": "{'en': 'Emission details for Pressen 4 procedure'}",
-            "id": "proc_emission_pressen_4",
-            "semantic_id": "http://example.com/semantic/Pressen_4_Emission",
-            "power_consumption": 0.1,
-            "green_house_gas_emission": null
-        }
+      "id_short": "Magnetisieren",
+      "description": "{'en': 'Magnetisieren Procedure'}",
+      "id": "procedure_magnetisieren",
+      "procedure_information": {
+        "id_short": "MagnetizingProcedure",
+        "description": "{'en': 'Procedure for the magnetization process in the assembly sequence'}",
+        "id": "procedure_info_magnetisieren",
+        "semantic_id": "http://example.com/semantic/MagnetizingProcedure",
+        "procedure_type": "Production"
+      },
+      "process_attributes": {
+        "id_short": "Magnetisieren_Attributes",
+        "description": "{'en': 'Attributes for the Magnetisieren process'}",
+        "id": "proc_attr_magnetisieren",
+        "semantic_id": "http://example.com/semantic/Magnetisieren_Attributes",
+        "process_attributes": [
+          {
+            "id_short": "generated_submodel_list_hack_b5e06cf033ac11ef80006ca1005eaa89",
+            "description": "",
+            "semantic_id": "",
+            "attribute_carrier": "Magnetisieren",
+            "general_attribute": "Magnetic Field Strength",
+            "predicate_type": "within_range",
+            "attribute_value": "1.0-2.0 Tesla"
+          }
+        ]
+      },
+      "execution_model": null,
+      "time_model": null,
+      "procedure_emission": {
+        "id_short": "Magnetisieren_Emission",
+        "description": "{'en': 'Emission details for Magnetisieren procedure'}",
+        "id": "proc_emission_magnetisieren",
+        "semantic_id": "http://example.com/semantic/Magnetisieren_Emission",
+        "power_consumption": 2,
+        "green_house_gas_emission": null
+      }
     },
     {
-        "id_short": "Magnetisieren",
-        "description": "{'en': 'Magnetisieren Procedure'}",
-        "id": "procedure_magnetisieren",
-        "procedure_information": {
-            "id_short": "MagnetizingProcedure",
-            "description": "{'en': 'Procedure for the magnetization process in the assembly sequence'}",
-            "id": "procedure_info_magnetisieren",
-            "semantic_id": "http://example.com/semantic/MagnetizingProcedure",
-            "procedure_type": "Production"
-        },
-        "process_attributes": {
-            "id_short": "Magnetisieren_Attributes",
-            "description": "{'en': 'Attributes for the Magnetisieren process'}",
-            "id": "proc_attr_magnetisieren",
-            "semantic_id": "http://example.com/semantic/Magnetisieren_Attributes",
-            "process_attributes": [
-                {
-                    "id_short": "generated_submodel_list_hack_2e0bda9632d611ef80006ca1005eaa89",
-                    "description": "",
-                    "semantic_id": "",
-                    "attribute_carrier": "Magnetisieren",
-                    "general_attribute": "Magnetic Field Strength",
-                    "predicate_type": "within_range",
-                    "attribute_value": "1.0-2.0 Tesla"
-                }
-            ]
-        },
-        "execution_model": null,
-        "time_model": null,
-        "procedure_emission": {
-            "id_short": "Magnetisieren_Emission",
-            "description": "{'en': 'Emission details for Magnetisieren procedure'}",
-            "id": "proc_emission_magnetisieren",
-            "semantic_id": "http://example.com/semantic/Magnetisieren_Emission",
-            "power_consumption": 2.0,
-            "green_house_gas_emission": null
-        }
+      "id_short": "Pressen_1",
+      "description": "{'en': 'Pressen 1 Procedure'}",
+      "id": "procedure_pressen_1",
+      "procedure_information": {
+        "id_short": "FirstPressingProcedure",
+        "description": "{'en': 'Procedure for the first pressing process in the assembly sequence'}",
+        "id": "procedure_info_pressen_1",
+        "semantic_id": "http://example.com/semantic/FirstPressingProcedure",
+        "procedure_type": "Production"
+      },
+      "process_attributes": {
+        "id_short": "Pressen_1_Attributes",
+        "description": "{'en': 'Attributes for the Pressen 1 process'}",
+        "id": "proc_attr_pressen_1",
+        "semantic_id": "http://example.com/semantic/Pressen_1_Attributes",
+        "process_attributes": [
+          {
+            "id_short": "generated_submodel_list_hack_b66869a833ac11ef80006ca1005eaa89",
+            "description": "",
+            "semantic_id": "",
+            "attribute_carrier": "Pressen_1",
+            "general_attribute": "Pressure",
+            "predicate_type": "within_range",
+            "attribute_value": "120-250 PSI"
+          }
+        ]
+      },
+      "execution_model": null,
+      "time_model": null,
+      "procedure_emission": {
+        "id_short": "Pressen_1_Emission",
+        "description": "{'en': 'Emission details for Pressen 1 procedure'}",
+        "id": "proc_emission_pressen_1",
+        "semantic_id": "http://example.com/semantic/Pressen_1_Emission",
+        "power_consumption": 0.1,
+        "green_house_gas_emission": null
+      }
     },
     {
-        "id_short": "Fugen_1",
-        "description": "{'en': 'Fugen 1 Procedure'}",
-        "id": "procedure_fugen_1",
-        "procedure_information": {
-            "id_short": "FirstJoiningProcedure",
-            "description": "{'en': 'Procedure for the first joining process in the assembly sequence'}",
-            "id": "procedure_info_fugen_1",
-            "semantic_id": "http://example.com/semantic/FirstJoiningProcedure",
-            "procedure_type": "Production"
-        },
-        "process_attributes": {
-            "id_short": "Fugen_1_Attributes",
-            "description": "{'en': 'Attributes for the Fugen 1 process'}",
-            "id": "proc_attr_fugen_1",
-            "semantic_id": "http://example.com/semantic/Fugen_1_Attributes",
-            "process_attributes": [
-                {
-                    "id_short": "generated_submodel_list_hack_2f8591eb32d611ef80006ca1005eaa89",
-                    "description": "",
-                    "semantic_id": "",
-                    "attribute_carrier": "Fugen_1",
-                    "general_attribute": "Positioning Accuracy",
-                    "predicate_type": "requires_to_be",
-                    "attribute_value": "Aligned within 0.1 mm tolerance"
-                }
-            ]
-        },
-        "execution_model": null,
-        "time_model": null,
-        "procedure_emission": {
-            "id_short": "Fugen_1_Emission",
-            "description": "{'en': 'Emission details for Fugen 1 procedure'}",
-            "id": "proc_emission_fugen_1",
-            "semantic_id": "http://example.com/semantic/Fugen_1_Emission",
-            "power_consumption": 0.1,
-            "green_house_gas_emission": null
-        }
+      "id_short": "Pressen_2_3",
+      "description": "{'en': 'Pressen 2/3 Procedure'}",
+      "id": "procedure_pressen_2_3",
+      "procedure_information": {
+        "id_short": "SecondThirdPressingProcedure",
+        "description": "{'en': 'Procedure for the second and third pressing process in the assembly sequence'}",
+        "id": "procedure_info_pressen_2_3",
+        "semantic_id": "http://example.com/semantic/SecondThirdPressingProcedure",
+        "procedure_type": "Production"
+      },
+      "process_attributes": {
+        "id_short": "Pressen_Attributes",
+        "description": "{'en': 'Attributes for the Pressen 2/3 process'}",
+        "id": "proc_attr_pressen_2_3",
+        "semantic_id": "http://example.com/semantic/Pressen_Attributes",
+        "process_attributes": [
+          {
+            "id_short": "generated_submodel_list_hack_b6e9930233ac11ef80006ca1005eaa89",
+            "description": "",
+            "semantic_id": "",
+            "attribute_carrier": "Pressen_2_3",
+            "general_attribute": "Pressure",
+            "predicate_type": "within_range",
+            "attribute_value": "100-200 PSI"
+          }
+        ]
+      },
+      "execution_model": null,
+      "time_model": null,
+      "procedure_emission": {
+        "id_short": "Pressen_2_3_Emission",
+        "description": "{'en': 'Emission details for Pressen 2/3 procedure'}",
+        "id": "proc_emission_pressen_2_3",
+        "semantic_id": "http://example.com/semantic/Pressen_2_3_Emission",
+        "power_consumption": 0.1,
+        "green_house_gas_emission": null
+      }
     },
     {
-        "id_short": "Schrauben_1",
-        "description": "{'en': 'Schrauben 1 Procedure'}",
-        "id": "procedure_schrauben_1",
-        "procedure_information": {
-            "id_short": "FirstScrewingProcedure",
-            "description": "{'en': 'Procedure for the first screwing process in the assembly sequence'}",
-            "id": "procedure_info_schrauben_1",
-            "semantic_id": "http://example.com/semantic/FirstScrewingProcedure",
-            "procedure_type": "Production"
-        },
-        "process_attributes": {
-            "id_short": "Schrauben_1_Attributes",
-            "description": "{'en': 'Attributes for the Schrauben 1 process'}",
-            "id": "proc_attr_schrauben_1",
-            "semantic_id": "http://example.com/semantic/Schrauben_1_Attributes",
-            "process_attributes": [
-                {
-                    "id_short": "generated_submodel_list_hack_3116b46032d611ef80006ca1005eaa89",
-                    "description": "",
-                    "semantic_id": "",
-                    "attribute_carrier": "Schrauben_1",
-                    "general_attribute": "Torque",
-                    "predicate_type": "within_range",
-                    "attribute_value": "15-20 Nm"
-                }
-            ]
-        },
-        "execution_model": null,
-        "time_model": null,
-        "procedure_emission": {
-            "id_short": "Schrauben_1_Emission",
-            "description": "{'en': 'Emission details for Schrauben 1 procedure'}",
-            "id": "proc_emission_schrauben_1",
-            "semantic_id": "http://example.com/semantic/Schrauben_1_Emission",
-            "power_consumption": 0.5,
-            "green_house_gas_emission": null
-        }
+      "id_short": "Pressen_4",
+      "description": "{'en': 'Pressen 4 Procedure'}",
+      "id": "procedure_pressen_4",
+      "procedure_information": {
+        "id_short": "FourthPressingProcedure",
+        "description": "{'en': 'Procedure for the fourth pressing process in the assembly sequence'}",
+        "id": "procedure_info_pressen_4",
+        "semantic_id": "http://example.com/semantic/FourthPressingProcedure",
+        "procedure_type": "Production"
+      },
+      "process_attributes": {
+        "id_short": "Pressen_4_Attributes",
+        "description": "{'en': 'Attributes for the Pressen 4 process'}",
+        "id": "proc_attr_pressen_4",
+        "semantic_id": "http://example.com/semantic/Pressen_4_Attributes",
+        "process_attributes": [
+          {
+            "id_short": "generated_submodel_list_hack_b77aa54f33ac11ef80006ca1005eaa89",
+            "description": "",
+            "semantic_id": "",
+            "attribute_carrier": "Pressen_4",
+            "general_attribute": "Pressure",
+            "predicate_type": "within_range",
+            "attribute_value": "150-300 PSI"
+          }
+        ]
+      },
+      "execution_model": null,
+      "time_model": null,
+      "procedure_emission": {
+        "id_short": "Pressen_4_Emission",
+        "description": "{'en': 'Emission details for Pressen 4 procedure'}",
+        "id": "proc_emission_pressen_4",
+        "semantic_id": "http://example.com/semantic/Pressen_4_Emission",
+        "power_consumption": 0.1,
+        "green_house_gas_emission": null
+      }
     },
     {
-        "id_short": "Fugen_2",
-        "description": "{'en': 'Fugen 2 Procedure'}",
-        "id": "procedure_fugen_2",
-        "procedure_information": {
-            "id_short": "SecondJoiningProcedure",
-            "description": "{'en': 'Procedure for the second joining process in the assembly sequence'}",
-            "id": "procedure_info_fugen_2",
-            "semantic_id": "http://example.com/semantic/SecondJoiningProcedure",
-            "procedure_type": "Production"
-        },
-        "process_attributes": {
-            "id_short": "Fugen_2_Attributes",
-            "description": "{'en': 'Attributes for the Fugen 2 process'}",
-            "id": "proc_attr_fugen_2",
-            "semantic_id": "http://example.com/semantic/Fugen_2_Attributes",
-            "process_attributes": [
-                {
-                    "id_short": "generated_submodel_list_hack_3238701632d611ef80006ca1005eaa89",
-                    "description": "",
-                    "semantic_id": "",
-                    "attribute_carrier": "Fugen_2",
-                    "general_attribute": "Positioning Accuracy",
-                    "predicate_type": "requires_to_be",
-                    "attribute_value": "Aligned within 0.5 mm tolerance"
-                }
-            ]
-        },
-        "execution_model": null,
-        "time_model": null,
-        "procedure_emission": {
-            "id_short": "Fugen_2_Emission",
-            "description": "{'en': 'Emission details for Fugen 2 procedure'}",
-            "id": "proc_emission_fugen_2",
-            "semantic_id": "http://example.com/semantic/Fugen_2_Emission",
-            "power_consumption": 0.5,
-            "green_house_gas_emission": null
-        }
+      "id_short": "Schrauben_1",
+      "description": "{'en': 'Schrauben 1 Procedure'}",
+      "id": "procedure_schrauben_1",
+      "procedure_information": {
+        "id_short": "FirstScrewingProcedure",
+        "description": "{'en': 'Procedure for the first screwing process in the assembly sequence'}",
+        "id": "procedure_info_schrauben_1",
+        "semantic_id": "http://example.com/semantic/FirstScrewingProcedure",
+        "procedure_type": "Production"
+      },
+      "process_attributes": {
+        "id_short": "Schrauben_1_Attributes",
+        "description": "{'en': 'Attributes for the Schrauben 1 process'}",
+        "id": "proc_attr_schrauben_1",
+        "semantic_id": "http://example.com/semantic/Schrauben_1_Attributes",
+        "process_attributes": [
+          {
+            "id_short": "generated_submodel_list_hack_b802d1aa33ac11ef80006ca1005eaa89",
+            "description": "",
+            "semantic_id": "",
+            "attribute_carrier": "Schrauben_1",
+            "general_attribute": "Torque",
+            "predicate_type": "within_range",
+            "attribute_value": "15-20 Nm"
+          }
+        ]
+      },
+      "execution_model": null,
+      "time_model": null,
+      "procedure_emission": {
+        "id_short": "Schrauben_1_Emission",
+        "description": "{'en': 'Emission details for Schrauben 1 procedure'}",
+        "id": "proc_emission_schrauben_1",
+        "semantic_id": "http://example.com/semantic/Schrauben_1_Emission",
+        "power_consumption": 0.5,
+        "green_house_gas_emission": null
+      }
     },
     {
-        "id_short": "Schrauben_2",
-        "description": "{'en': 'Schrauben 2 Procedure'}",
-        "id": "procedure_schrauben_2",
-        "procedure_information": {
-            "id_short": "SecondScrewingProcedure",
-            "description": "{'en': 'Procedure for the second screwing process in the assembly sequence'}",
-            "id": "procedure_info_schrauben_2",
-            "semantic_id": "http://example.com/semantic/SecondScrewingProcedure",
-            "procedure_type": "Production"
-        },
-        "process_attributes": {
-            "id_short": "Schrauben_2_Attributes",
-            "description": "{'en': 'Attributes for the Schrauben 2 process'}",
-            "id": "proc_attr_schrauben_2",
-            "semantic_id": "http://example.com/semantic/Schrauben_2_Attributes",
-            "process_attributes": [
-                {
-                    "id_short": "generated_submodel_list_hack_336e3b5832d611ef80006ca1005eaa89",
-                    "description": "",
-                    "semantic_id": "",
-                    "attribute_carrier": "Schrauben_2",
-                    "general_attribute": "Torque",
-                    "predicate_type": "within_range",
-                    "attribute_value": "10-15 Nm"
-                }
-            ]
-        },
-        "execution_model": null,
-        "time_model": null,
-        "procedure_emission": {
-            "id_short": "Schrauben_2_Emission",
-            "description": "{'en': 'Emission details for Schrauben 2 procedure'}",
-            "id": "proc_emission_schrauben_2",
-            "semantic_id": "http://example.com/semantic/Schrauben_2_Emission",
-            "power_consumption": 1.0,
-            "green_house_gas_emission": null
-        }
+      "id_short": "Schrauben_2",
+      "description": "{'en': 'Schrauben 2 Procedure'}",
+      "id": "procedure_schrauben_2",
+      "procedure_information": {
+        "id_short": "SecondScrewingProcedure",
+        "description": "{'en': 'Procedure for the second screwing process in the assembly sequence'}",
+        "id": "procedure_info_schrauben_2",
+        "semantic_id": "http://example.com/semantic/SecondScrewingProcedure",
+        "procedure_type": "Production"
+      },
+      "process_attributes": {
+        "id_short": "Schrauben_2_Attributes",
+        "description": "{'en': 'Attributes for the Schrauben 2 process'}",
+        "id": "proc_attr_schrauben_2",
+        "semantic_id": "http://example.com/semantic/Schrauben_2_Attributes",
+        "process_attributes": [
+          {
+            "id_short": "generated_submodel_list_hack_b8304a8533ac11ef80006ca1005eaa89",
+            "description": "",
+            "semantic_id": "",
+            "attribute_carrier": "Schrauben_2",
+            "general_attribute": "Torque",
+            "predicate_type": "within_range",
+            "attribute_value": "10-15 Nm"
+          }
+        ]
+      },
+      "execution_model": null,
+      "time_model": null,
+      "procedure_emission": {
+        "id_short": "Schrauben_2_Emission",
+        "description": "{'en': 'Emission details for Schrauben 2 procedure'}",
+        "id": "proc_emission_schrauben_2",
+        "semantic_id": "http://example.com/semantic/Schrauben_2_Emission",
+        "power_consumption": 1,
+        "green_house_gas_emission": null
+      }
     }
-]
+  ]

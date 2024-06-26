@@ -1,27 +1,62 @@
 import os
 import json
-import pandas as pd
 import olca_ipc as ipc
 import olca_schema as o
+import uuid
+import requests
+import pandas as pd
+import SDM_Extraction
 from typing import Callable
 from openpyxl import Workbook
 
-# Paths to the data files
-procedures_json_path = os.path.join('Stellmotor_Skript', 'Output', 'attached_procedures.json')
-product_json_path = os.path.join('Stellmotor_Skript', 'Input_Files', 'AAS_motor_example.json')
+
+
+# Define the base URL for the server
+BASE_URL = "http://127.0.0.1:8000"
+
+# Define the paths for each AAS type
+PATHS = {
+    "Product": "/Product/",
+    "Process": "/Process/",
+    "Procedure": "/Procedure/"
+}
+
+# Directory where JSON files are stored
+JSON_DIRECTORY = "Stellmotor_Skript"  # Adjust this if your JSON files are in a different directory
+
+# Headers to match manual upload (Postman)
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "User-Agent": "PostmanRuntime/7.39.0"  # This mirrors the User-Agent from the manual upload
+}
+
+# Function to get JSON data from the server
+def get_json(url):
+    print(f"Attempting to GET data from URL: {url}")  # Debug line to print the exact URL being requested
+    response = requests.get(url, allow_redirects=True)  # Allowing redirects
+    print(f"Response status code: {response.status_code}")  # Debug line to show status code
+    if response.status_code != 200:
+        print(f"Error {response.status_code} for URL: {url}")
+        print(f"Response headers: {response.headers}")  # Print response headers
+        print(f"Response content: {response.text}")  # Print response content
+        response.raise_for_status()  # Raise an error for HTTP codes 4xx/5xx
+    return response.json()
 
 # Initialize the IPC client for openLCA
-client = ipc.Client(8080)
+client = ipc.Client(8083)
 
-# Load the procedure information from the JSON file
-with open(procedures_json_path) as f:
-    procedure_data = json.load(f)
+# Load the product information from the Server file and procedure information from the file
+product_id = "product_001"
+motor_data = get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
+print(f"Retrieved product data for {product_id}")
 
-with open(product_json_path) as f:
-    motor_data = json.load(f)
+procedure_data = SDM_Extraction.retrieve_attached_procedures(product_id)
 
 # Extract the overall product description from the JSON
-overall_motor_name = motor_data['description']
+overall_motor_name = motor_data['id_short']
 
 # Define flow properties (Assuming these properties exist in your openLCA database)
 energy = client.find(o.FlowProperty, name="Energy")
