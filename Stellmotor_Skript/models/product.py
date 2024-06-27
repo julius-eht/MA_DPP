@@ -94,6 +94,7 @@ class ProductInformation(Submodel):
         semantic_id (Optional[str]): The semantic id of the product general information.
         product_type (str): The type of the product.
         manufacturer (str): The manufacturer of the product.
+        passport (str): The AAS reference of the product passport.
     """
     product_type: str
     manufacturer: str
@@ -101,6 +102,7 @@ class ProductInformation(Submodel):
     operating_manual: Optional[str]
     disassembly_manual: Optional[str]
     green_house_gas_emission: Optional[GreenHouseGasEmission]
+    passport_id: Optional[str] # Modification of SDM Model
 
 
 class TrackingData(Submodel):

@@ -3,42 +3,26 @@ import aas2openapi
 from aas2openapi.middleware import Middleware
 
 from models.product import (
-        ProcessReference,
         Product,
-        ProductInformation,
-        ProductUseType,
-        SubProduct,
-        BOM,
-        TrackingData,
-        ConstructionData
     )
 
 
 from models.processes import (
     Process,
-    ProcessInformation,
-    AttributePredicate,
-    ProcessAttributes,
-    ProcessModelType,
-    ProcessModel
 )
 
 from models.procedure import (
-    ProcedureTypeEnum,
-    ActivityTypeEnum,
-    Event,
-    ExecutionModel,
-    TimeModel,
-    ProcedureInformation,
-    GreenHouseGasEmission,
-    ProcedureEmission,
     Procedure
+)
+
+from models.passport import (
+    Passport
 )
 
 # Create the middleware and load the models
 middleware = Middleware()
 
-middleware.load_pydantic_models([Product, Process, Procedure])
+middleware.load_pydantic_models([Product, Process, Procedure, Passport])
 # middleware.load_pydantic_model_instances([example_product, example_process])
 # middleware.load_aas_objectstore(obj_store)
 # middleware.load_json_models(file_path="examples/example_json_model.json")
