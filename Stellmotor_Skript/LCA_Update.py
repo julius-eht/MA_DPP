@@ -9,8 +9,6 @@ import SDM_Extraction
 from typing import Callable
 from openpyxl import Workbook
 
-
-
 # Define the base URL for the server
 BASE_URL = "http://127.0.0.1:8000"
 
@@ -18,7 +16,8 @@ BASE_URL = "http://127.0.0.1:8000"
 PATHS = {
     "Product": "/Product/",
     "Process": "/Process/",
-    "Procedure": "/Procedure/"
+    "Procedure": "/Procedure/",
+    "Passport": "/Passport/"
 }
 
 # Directory where JSON files are stored
@@ -149,7 +148,7 @@ else:
 
 # Conduct the actual LCA
 # Select the impact method
-impact_method = "787c02f1-d1f2-36d6-8e06-2307cc3ebebc"
+impact_method = "787c02f1-d1f2-36d6-8e06-2307cc3ebebc" # Gather data from excel here
 
 # create a calculation setup
 setup = o.CalculationSetup(
@@ -186,3 +185,5 @@ else:
    # Define the path to save the Excel file
 
     print(df_total_impacts)
+
+# Aggregate the overall emissions here

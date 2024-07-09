@@ -138,26 +138,59 @@ class CarbonFootprint(Submodel):
     product_footprint: Optional[List[ProductCarbonFootprint]]
     transport_footprint: Optional[List[TransportCarbonFootprint]]
 
+class ProductUseType(str, Enum):
+    """
+    Enum to describe how a subproduct is used in the product.
+    """
+    ASSEMBLED = "assembled"
+    UNASSEMBLED = "unassembled"
+    CONSUMED = "consumed"
+
+
+class SubProduct(SubmodelElementCollection):
+    """
+    SubmodelElementCollection to describe a subproduct of a product with reference to its AAS, status informatino and quantity.
+
+    Args:
+        description (Optional[str]): The description of the subproduct.
+        id_short (Optional[str]): The short id of the subproduct.
+        semantic_id (Optional[str]): The semantic id of the subproduct.
+        product_type (str): The type of the subproduct.
+        product_id (str): The AAS reference of the subproduct.
+        status (Literal["assembled", "unassembled"]): The status of the subproduct.
+        quantity (int): The quantity of the subproduct(s).
+    """
+    product_type: str
+    passport_id: str
+    product_use_type: ProductUseType
+    quantity: int
+
+class BOM(Submodel):
+    """
+    Submodel to describe the bill of materials of a product.
+
+    Args:
+        id (str): The id of the bill of materials.
+        description (Optional[str]): The description of the bill of materials.
+        id_short (Optional[str]): The short id of the bill of materials.
+        semantic_id (Optional[str]): The semantic id of the bill of materials.
+        sub_product_count (Optional[int]): The total number of subproducts (depht 1)
+        sub_products (Optional[List[SubmodelElementCollection]]): The list of subproducts contained in the product (depht 1)
+    """
+    sub_product_count: Optional[int]
+    sub_products: Optional[List[SubProduct]]
+
 class Passport(AAS):
     """
     AAS to describe a product through its product passport.
 
     Args:
-        id (str): The id of the product.
+        id (str): The id of the productpassport.
         description (Optional[str]): The description of the product.
-        id_short (Optional[str]): The short id of the product.
-        semantic_id (Optional[str]): The semantic id of the product.
+        id_short (Optional[str]): The short id of the passport.
+        semantic_id (Optional[str]): The semantic id of the passport.
         carbon_footprint (Optional[CarbonFootprint]): The carbon footprint data of the product.
     """
     carbon_footprint: Optional[CarbonFootprint]
+    bom: Optional[BOM]
     # TBD Add other compartments
-
-__all__ = [
-    "Product",
-    "CarbonFootprint",
-    "ProductCarbonFootprint",
-    "TransportCarbonFootprint",
-    "PCFGoodsAddressHandover",
-    "TCFGoodsTransportAddressTakeover",
-    "TCFGoodsTransportAddressHandover"
-]
