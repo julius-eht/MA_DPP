@@ -223,6 +223,13 @@ component_tcf = Method_Toolbox.retrieve_total_tcf(motor_passport_name)
 total_pcf = component_pcf + production_co2_sum
 total_tcf = component_tcf + transport_co2_value
 
+#Print Results
+print(f"The total components account for {component_pcf} kg CO2eq in Production")
+print(f"The total components account for {component_tcf} kg CO2eq in Transport")
+print(f"The OEM accounts for {production_co2_sum} kg CO2eq in Production")
+print(f"The OEM accounts for {transport_co2_value} kg CO2eq in Transport")
+
+#Upload Results
 Method_Toolbox.update_passport_with_pcf(motor_passport_name,total_pcf,0)
 Method_Toolbox.update_passport_with_tcf(motor_passport_name,total_tcf,0)
 print('Updated TCF and PCF of the product system, script execution complete.')

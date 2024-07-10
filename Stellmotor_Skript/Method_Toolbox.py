@@ -81,6 +81,7 @@ def retrieve_attached_procedures(product_id):
     return procedure_responses
 
 def retrieve_total_pcf(passport_id: str) -> float:
+    print("Gathering PCF Data...")
     total_pcf = 0.0
 
     # Load the product AAS to find the BOM
@@ -123,6 +124,7 @@ def retrieve_total_pcf(passport_id: str) -> float:
     return total_pcf
 
 def retrieve_total_tcf(passport_id: str) -> float:
+    print("Gathering TCF Data...")
     total_tcf = 0.0
     # Load the product AAS to find the BOM
     try:
@@ -154,7 +156,7 @@ def retrieve_total_tcf(passport_id: str) -> float:
                 # Aggregate TCF values
                 transport_footprints = carbon_footprint.get("transport_footprints", [])
                 for tcf in transport_footprints:
-                    total_tcf += (tcf.get("PCFCO2eq", 0.0)*sub_product.get("quantity"))
+                    total_tcf += (tcf.get("TCFCO2eq", 0.0)*sub_product.get("quantity"))
             else:
                 print(f"No carbon footprint data found for passport ID: {sub_passport_id}")
         except Exception as e:
@@ -177,8 +179,7 @@ def put_json(url: str, data: dict):
 
 def update_passport_with_pcf(passport_id: str, total_pcf: float, footprint_nr: int):
     passport_url = BASE_URL + PATHS["Passport"] + f"{passport_id}"
-
-    # Fetch current passport data
+        # Fetch current passport data
     try:
         passport_data = get_json(passport_url)
         print(f"Retrieved passport data for {passport_id}")

@@ -3,7 +3,7 @@
   "description": "Passport for Grease",
   "id_short": "GreasePassport",
   "semantic_id": "http://example.com/semantic/GreasePassport",
-  "carbon_footprints": {
+  "carbon_footprint": {
     "id": "cfp_014",
     "description": "Carbon footprint for Grease",
     "id_short": "CFP",
