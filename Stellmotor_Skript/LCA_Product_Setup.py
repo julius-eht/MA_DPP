@@ -4,10 +4,9 @@ import olca_ipc as ipc
 import olca_schema as o
 import uuid
 import requests
+import Method_Toolbox
 from typing import Callable
 from openpyxl import Workbook
-
-
 
 # Define the base URL for the server
 BASE_URL = "http://127.0.0.1:8000"
@@ -19,44 +18,18 @@ PATHS = {
     "Procedure": "/Procedure/"
 }
 
-# Directory where JSON files are stored
-JSON_DIRECTORY = "Stellmotor_Skript"  # Adjust this if your JSON files are in a different directory
-
-# Headers to match manual upload (Postman)
-headers = {
-    "Content-Type": "application/json",
-    "Accept": "*/*",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Connection": "keep-alive",
-    "User-Agent": "PostmanRuntime/7.39.0"  # This mirrors the User-Agent from the manual upload
-}
-
-# Function to get JSON data from the server
-def get_json(url):
-    print(f"Attempting to GET data from URL: {url}")  # Debug line to print the exact URL being requested
-    response = requests.get(url, allow_redirects=True)  # Allowing redirects
-    print(f"Response status code: {response.status_code}")  # Debug line to show status code
-    if response.status_code != 200:
-        print(f"Error {response.status_code} for URL: {url}")
-        print(f"Response headers: {response.headers}")  # Print response headers
-        print(f"Response content: {response.text}")  # Print response content
-        response.raise_for_status()  # Raise an error for HTTP codes 4xx/5xx
-    return response.json()
-
 # Initialize the IPC client for openLCA
 client = ipc.Client(8083)
 
 # Load the product information from the Server file
 product_id = "product_001"
-motor_data = get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
+motor_data = Method_Toolbox.get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
 print(f"Retrieved product data for {product_id}")
 
 # Extract the overall product description from the JSON
 overall_motor_name = motor_data['id_short']
 
-# Define flow properties (Assuming these properties exist in your openLCA database)
-mass = client.find(o.FlowProperty, name="Mass")
-energy = client.find(o.FlowProperty, name="Energy")
+# Define flow properties (Assuming these properties exist in the openLCA database)
 items = client.find(o.FlowProperty, name="Number of items")
 
 # Define units 

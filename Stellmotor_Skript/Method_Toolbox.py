@@ -87,34 +87,34 @@ def retrieve_attached_procedures(product_id):
     print("Completed retrieval of all attached procedures.")
     return procedure_responses
 
-def retrieve_total_pcf(product_id: str) -> float:
+def retrieve_total_pcf(passport_id: str) -> float:
     total_pcf = 0.0
 
     # Load the product AAS to find the BOM
     try:
-        product_data = get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
-        print(f"Retrieved product data for {product_id}")
+        product_data = get_json(BASE_URL + PATHS["Passport"] + f"{passport_id}")
+        print(f"Retrieved product data for {passport_id}")
         bom = product_data.get("bom", {})
         if not bom:
-            print(f"BOM not found for product {product_id}")
+            print(f"BOM not found for product {passport_id}")
             return total_pcf
         sub_products = bom.get("sub_products", [])
         print(f"Sub-products found: {sub_products}")
     except Exception as e:
-        print(f"Failed to get product data for {product_id}: {e}")
+        print(f"Failed to get product data for {passport_id}: {e}")
         return total_pcf
 
     # Retrieve PCF data for each sub-product
     for sub_product in sub_products:
         try:
-            passport_id = sub_product.get("passport_id")
-            if not passport_id:
+            sub_passport_id = sub_product.get("passport_id")
+            if not sub_passport_id:
                 print(f"No passport ID found for sub-product: {sub_product}")
                 continue
 
-            print(f"Processing passport ID: {passport_id}")
+            print(f"Processing passport ID: {sub_passport_id}")
             # Fetch the sub-product passport data to get the carbon footprint
-            passport_data = get_json(BASE_URL + PATHS["Passport"] + f"{passport_id}")
+            passport_data = get_json(BASE_URL + PATHS["Passport"] + f"{sub_passport_id}")
             carbon_footprint = passport_data.get("carbon_footprint", {})
 
             if carbon_footprint:
@@ -123,41 +123,41 @@ def retrieve_total_pcf(product_id: str) -> float:
                 for pcf in product_footprints:
                     total_pcf += pcf.get("PCFCO2eq", 0.0)
             else:
-                print(f"No carbon footprint data found for passport ID: {passport_id}")
+                print(f"No carbon footprint data found for passport ID: {sub_passport_id}")
         except Exception as e:
-            print(f"Failed to get passport data for passport ID {passport_id}: {e}")
+            print(f"Failed to get passport data for passport ID {sub_passport_id}: {e}")
 
     print("Completed retrieval and aggregation of all PCF data.")
     return total_pcf
 
-def retrieve_total_tcf(product_id: str) -> float:
+def retrieve_total_tcf(passport_id: str) -> float:
     total_tcf = 0.0
 
     # Load the product AAS to find the BOM
     try:
-        product_data = get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
-        print(f"Retrieved product data for {product_id}")
+        product_data = get_json(BASE_URL + PATHS["Product"] + f"{passport_id}")
+        print(f"Retrieved product data for {passport_id}")
         bom = product_data.get("bom", {})
         if not bom:
-            print(f"BOM not found for product {product_id}")
+            print(f"BOM not found for product {passport_id}")
             return total_tcf
         sub_products = bom.get("sub_products", [])
         print(f"Sub-products found: {sub_products}")
     except Exception as e:
-        print(f"Failed to get product data for {product_id}: {e}")
+        print(f"Failed to get product data for {passport_id}: {e}")
         return total_tcf
 
     # Retrieve TCF data for each sub-product
     for sub_product in sub_products:
         try:
-            passport_id = sub_product.get("passport_id")
+            sub_passport_id = sub_product.get("passport_id")
             if not passport_id:
                 print(f"No passport ID found for sub-product: {sub_product}")
                 continue
 
-            print(f"Processing passport ID: {passport_id}")
+            print(f"Processing passport ID: {sub_passport_id}")
             # Fetch the sub-product passport data to get the carbon footprint
-            passport_data = get_json(BASE_URL + PATHS["Passport"] + f"{passport_id}")
+            passport_data = get_json(BASE_URL + PATHS["Passport"] + f"{sub_passport_id}")
             carbon_footprint = passport_data.get("carbon_footprint", {})
 
             if carbon_footprint:
@@ -166,9 +166,9 @@ def retrieve_total_tcf(product_id: str) -> float:
                 for tcf in transport_footprints:
                     total_tcf += tcf.get("TCFCO2eq", 0.0)
             else:
-                print(f"No carbon footprint data found for passport ID: {passport_id}")
+                print(f"No carbon footprint data found for passport ID: {sub_passport_id}")
         except Exception as e:
-            print(f"Failed to get passport data for passport ID {passport_id}: {e}")
+            print(f"Failed to get passport data for passport ID {sub_passport_id}: {e}")
 
     print("Completed retrieval and aggregation of all TCF data.")
     return total_tcf

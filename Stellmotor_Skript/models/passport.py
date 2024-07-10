@@ -135,8 +135,8 @@ class CarbonFootprint(Submodel):
         product_footprint (Optional[List[ProductCarbonFootprint]]): The product carbon footprint data.
         transport_footprint (Optional[List[TransportCarbonFootprint]]): The transport carbon footprint data.
     """
-    product_footprint: Optional[List[ProductCarbonFootprint]]
-    transport_footprint: Optional[List[TransportCarbonFootprint]]
+    product_footprints: Optional[List[ProductCarbonFootprint]]
+    transport_footprints: Optional[List[TransportCarbonFootprint]]
 
 class ProductUseType(str, Enum):
     """

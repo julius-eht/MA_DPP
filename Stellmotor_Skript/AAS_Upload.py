@@ -9,7 +9,8 @@ BASE_URL = "http://127.0.0.1:8000"
 PATHS = {
     "Product": "/Product/",
     "Process": "/Process/",
-    "Procedure": "/Procedure/"
+    "Procedure": "/Procedure/",
+    "Passport": "/Passport/"
 }
 
 # Directory where JSON files are stored
@@ -26,6 +27,7 @@ headers = {
 
 # List of JSON files with corrected names to post
 JSON_FILES = [
+    "Input_Files/Passport_motor_examle.json"
     "Input_Files/AAS_motor_example.json",
     "Input_Files/AAS_process_pressen_1.json",
     "Input_Files/AAS_process_pressen_2_3.json",
@@ -80,6 +82,8 @@ def post_all_jsons():
             path = PATHS["Process"]
         elif "procedure" in json_file:
             path = PATHS["Procedure"]
+        elif "Passport" in json_file:
+            path = PATHS["Passport"]
         else:
             continue
         status_code, response = post_json(json_file, path)

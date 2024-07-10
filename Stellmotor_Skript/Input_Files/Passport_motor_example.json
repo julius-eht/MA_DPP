@@ -1,0 +1,179 @@
+{
+  "id": "motor_passport_001",
+  "description": "Passport for Bosch AHC2 Motor",
+  "id_short": "MotorPassport",
+  "semantic_id": "http://example.com/semantic/MotorPassport",
+  "bom": {
+    "id": "bom_001",
+    "description": "Bill of materials for Bosch AHC2 Motor",
+    "id_short": "BOM",
+    "semantic_id": "http://example.com/semantic/BOM",
+    "sub_product_count": 14,
+    "sub_products": [
+      {
+        "id": "passport_sub_prod_001",
+        "description": "Poltopf",
+        "id_short": "Poltopf",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "poltopf_001",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_002",
+        "description": "Clamps",
+        "id_short": "Clamps",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "clamps_002",
+        "product_use_type": "assembled",
+        "quantity": 2
+      },
+      {
+        "id": "passport_sub_prod_003",
+        "description": "Magnet Halves",
+        "id_short": "MagnetHalves",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "magnet_halves_003",
+        "product_use_type": "assembled",
+        "quantity": 2
+      },
+      {
+        "id": "passport_sub_prod_004",
+        "description": "Plastic Part",
+        "id_short": "PlasticPart",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "plastic_part_004",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_005",
+        "description": "Anchor",
+        "id_short": "Anchor",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "anchor_005",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_006",
+        "description": "Ring Magnet",
+        "id_short": "RingMagnet",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Magnetic Component",
+        "product_id": "ring_magnet_006",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_007",
+        "description": "Brush Carrier",
+        "id_short": "BrushCarrier",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "brush_carrier_007",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_008",
+        "description": "Housing EA",
+        "id_short": "HousingEA",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "housing_ea_008",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_009",
+        "description": "Worm Wheel",
+        "id_short": "WormWheel",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "wormwheel_009",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_010",
+        "description": "Screws",
+        "id_short": "Screws",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "screws_010",
+        "product_use_type": "assembled",
+        "quantity": 4
+      },
+      {
+        "id": "passport_sub_prod_011",
+        "description": "Housing EB",
+        "id_short": "HousingEB",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "housing_eb_011",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_012",
+        "description": "Gear A",
+        "id_short": "GearA",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "gear_a_012",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_013",
+        "description": "Gear B",
+        "id_short": "GearB",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Mechanical Component",
+        "product_id": "gear_b_013",
+        "product_use_type": "assembled",
+        "quantity": 1
+      },
+      {
+        "id": "passport_sub_prod_014",
+        "description": "Grease",
+        "id_short": "Grease",
+        "semantic_id": "http://example.com/semantic/SubProduct",
+        "product_type": "Consumable",
+        "product_id": "grease_014",
+        "product_use_type": "consumed",
+        "quantity": 1
+      }
+    ]
+  },
+  "carbon_footprints": {
+    "id": "cfp_001",
+    "description": "Carbon footprint for Bosch AHC2 Motor",
+    "id_short": "CFP",
+    "semantic_id": "http://example.com/semantic/CFP",
+    "productcarbonfootprints": [
+        {
+            "description": "PCF Test",
+            "id_short": "PCF_Test",
+            "semantic_id": "http://example.com/semantic/PCF",
+            "PCFCalculationMethod": "IPCC GWP 100a",
+            "PCFCO2eq": 0.0
+          }
+    ],
+    "transportcarbonfootprints": [
+        {
+            "description": "TCF Test",
+            "id_short": "TCF_Test",
+            "semantic_id": "http://example.com/semantic/TCF",
+            "TCFCalculationMethod": "IPCC GWP 100a",
+            "TCFCO2eq": 0.0
+          }
+    ]
+  }
+}
