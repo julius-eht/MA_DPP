@@ -175,6 +175,117 @@
         "TCFCO2eq": 0.0
       }
     ]
+  },
+  "smt_technical_data": {
+    "id": "smt_technical_data_001",
+    "id_short": "smt_data_001",
+    "GeneralInformation": {
+      "id_short": "smt_general_info_001",
+      "ManufacturerName": "Bosch",
+      "ManufacturerLogo": "http://example.com/logos/bosch.png",
+      "ManufacturerProductDesignation": "Bosch AHC2 Motor",
+      "ManufacturerPartNumber": "12345678",
+      "ManufacturerOrderCode": "87654321",
+      "ProductImage": "http://example.com/images/bosch_ahc2.png"
+    },
+    "ProductClassifications": {
+      "id_short": "prod_class_001",
+      "ProductClassificationItem": [
+        {
+          "id_short": "prod_class_item_001",
+          "ProductClassificationSystem": "UNSPSC",
+          "ClassificationSystemVersion": "19.0501",
+          "ProductClassId": "26101601"
+        }
+      ]
+    },
+    "TechnicalProperties": {
+      "id_short": "technical_prop_001",
+      "arbitrary_mlp": "Sample MLP",
+      "arbitrary_string": "Sample String",
+      "MainSection": null
+    },
+    "FurtherInformation": {
+      "id_short": "technical_info_001",
+      "TextStatement": "This motor is designed for high performance.",
+      "ValidDate": "2024-12-31"
+    }
+  },
+  "handover_documentation": {
+    "id": "handover_doc_001",
+    "id_short": "handover_001",
+    "Entity": [
+      "Entity1",
+      "Entity2"
+    ],
+    "Document": [
+      {"id_short": "document_instance_001",
+        "DocumentEntity": [
+          "Entity1"
+        ],
+        "DocumentId": [
+          {
+            "id_short": "documentation_001",
+            "DocumentDomainId": "Domain1",
+            "Valued": "Value1",
+            "IsPrimary": "Yes"
+          }
+        ],
+        "DocumentClassification": [
+          {
+            "id_short": "documentation_class_001",
+            "ClassId": "Class1",
+            "ClassName": "Class Name",
+            "ClassificationSystem": "System1"
+          }
+        ],
+        "DocumentVersion": [
+          {
+            "id_short": "documentation_verson_001",
+            "Language": ["EN"],
+            "DocumentVersionId": "Version1",
+            "Title": "Document Title",
+            "SubTitle": "Document Subtitle",
+            "Summary": "Summary of the document",
+            "KeyWords": ["Keyword1", "Keyword2"],
+            "SetDate": "2023-01-01",
+            "StatusValue": "Draft",
+            "OrganizationName": "Org Name",
+            "OrganizationOfficialName": "Org Official Name",
+            "DigitalFile": "http://example.com/files/document.pdf",
+            "PreviewFile": "http://example.com/files/preview.pdf",
+            "RefersTo": null,
+            "BasedOn": null,
+            "TranslationOf": null
+          }
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "id": "reliability_001",
+    "id_short": "rel_001",
+    "NumberOfReliabilitySets": 1,
+    "OperatingConditionsOfReliabilityCharacteristics": [
+      {
+        "id_short": "rel_ops_cond_001",
+        "TypeOfVoltage": "AC",
+        "RatedVoltage": 230.0,
+        "MinimumRatedVoltage": 220.0,
+        "MaximumRatedVoltage": 240.0,
+        "RatedOperationalCurrent": 10.0,
+        "OtherOperatingConditions": "Standard conditions",
+        "UsefulLifeInNumberOfOperations": 100000,
+        "UsefulLifeInTimeInterval": 5.0
+      }
+    ],
+    "ReliabilityCharacteristics": [
+      {
+        "id_short": "rel_char_001",
+        "MTTF": 50000,
+        "MTBF": 100000,
+        "B10": 90000
+      }
+    ]
   }
 }
-

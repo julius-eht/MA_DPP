@@ -83,7 +83,6 @@ else:
 OEM_PCF_Contribution = pcf_co2eq_value - sum(item['Value'] for item in pcf_data) 
 OEM_TCF_Contribution = tcf_co2eq_value - sum(item['Value'] for item in tcf_data) 
 
-
 # Append OEM Information
 pcf_data.append({
     'Source': "OEM",
