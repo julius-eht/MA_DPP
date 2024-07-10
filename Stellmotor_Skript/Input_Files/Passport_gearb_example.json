@@ -1,0 +1,32 @@
+{
+  "id": "gearb_passport_001",
+  "description": "Passport for Gear B",
+  "id_short": "GearBPassport",
+  "semantic_id": "http://example.com/semantic/GearBPassport",
+  "carbon_footprint": {
+    "id": "cfp_013",
+    "description": "Carbon footprint for Gear B",
+    "id_short": "CFP",
+    "semantic_id": "http://example.com/semantic/CFP",
+    "product_footprints": [
+      {
+        "description": "PCF Test",
+        "id_short": "PCF_Test",
+        "semantic_id": "http://example.com/semantic/PCF",
+        "PCFCalculationMethod": "IPCC GWP 100a",
+        "PCFCO2eq": 0.1
+      }
+    ],
+    "transport_footprints": [
+      {
+        "description": "TCF Test",
+        "id_short": "TCF_Test",
+        "semantic_id": "http://example.com/semantic/TCF",
+        "TCFCalculationMethod": "IPCC GWP 100a",
+        "TCFCO2eq": 0.1
+      }
+    ]
+  }
+}
+
+

@@ -4,7 +4,7 @@
   "id_short": "MotorPassport",
   "semantic_id": "http://example.com/semantic/MotorPassport",
   "bom": {
-    "id": "bom_001",
+    "id": "passport_bom_001",
     "description": "Bill of materials for Bosch AHC2 Motor",
     "id_short": "BOM",
     "semantic_id": "http://example.com/semantic/BOM",
@@ -16,7 +16,7 @@
         "id_short": "Poltopf",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "poltopf_001",
+        "passport_id": "poltopf_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -26,7 +26,7 @@
         "id_short": "Clamps",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "clamps_002",
+        "passport_id": "clamps_passport_001",
         "product_use_type": "assembled",
         "quantity": 2
       },
@@ -36,7 +36,7 @@
         "id_short": "MagnetHalves",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "magnet_halves_003",
+        "passport_id": "magnethalves_passport_001",
         "product_use_type": "assembled",
         "quantity": 2
       },
@@ -46,7 +46,7 @@
         "id_short": "PlasticPart",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "plastic_part_004",
+        "passport_id": "plasticpart_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -56,7 +56,7 @@
         "id_short": "Anchor",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "anchor_005",
+        "passport_id": "anchor_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -66,7 +66,7 @@
         "id_short": "RingMagnet",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Magnetic Component",
-        "product_id": "ring_magnet_006",
+        "passport_id": "ringmagnet_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -76,7 +76,7 @@
         "id_short": "BrushCarrier",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "brush_carrier_007",
+        "passport_id": "brushcarrier_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -86,7 +86,7 @@
         "id_short": "HousingEA",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "housing_ea_008",
+        "passport_id": "housingea_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -96,7 +96,7 @@
         "id_short": "WormWheel",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "wormwheel_009",
+        "passport_id": "wormwheel_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -106,7 +106,7 @@
         "id_short": "Screws",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "screws_010",
+        "passport_id": "screws_passport_001",
         "product_use_type": "assembled",
         "quantity": 4
       },
@@ -116,7 +116,7 @@
         "id_short": "HousingEB",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "housing_eb_011",
+        "passport_id": "housingeb_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -126,7 +126,7 @@
         "id_short": "GearA",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "gear_a_012",
+        "passport_id": "geara_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -136,7 +136,7 @@
         "id_short": "GearB",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Mechanical Component",
-        "product_id": "gear_b_013",
+        "passport_id": "gearb_passport_001",
         "product_use_type": "assembled",
         "quantity": 1
       },
@@ -146,34 +146,35 @@
         "id_short": "Grease",
         "semantic_id": "http://example.com/semantic/SubProduct",
         "product_type": "Consumable",
-        "product_id": "grease_014",
+        "passport_id": "grease_passport_001",
         "product_use_type": "consumed",
         "quantity": 1
       }
     ]
   },
-  "carbon_footprints": {
+  "carbon_footprint": {
     "id": "cfp_001",
     "description": "Carbon footprint for Bosch AHC2 Motor",
     "id_short": "CFP",
     "semantic_id": "http://example.com/semantic/CFP",
-    "productcarbonfootprints": [
-        {
-            "description": "PCF Test",
-            "id_short": "PCF_Test",
-            "semantic_id": "http://example.com/semantic/PCF",
-            "PCFCalculationMethod": "IPCC GWP 100a",
-            "PCFCO2eq": 0.0
-          }
+    "product_footprints": [
+      {
+        "description": "PCF Test",
+        "id_short": "PCF_Test",
+        "semantic_id": "http://example.com/semantic/PCF",
+        "PCFCalculationMethod": "IPCC GWP 100a",
+        "PCFCO2eq": 0.0
+      }
     ],
-    "transportcarbonfootprints": [
-        {
-            "description": "TCF Test",
-            "id_short": "TCF_Test",
-            "semantic_id": "http://example.com/semantic/TCF",
-            "TCFCalculationMethod": "IPCC GWP 100a",
-            "TCFCO2eq": 0.0
-          }
+    "transport_footprints": [
+      {
+        "description": "TCF Test",
+        "id_short": "TCF_Test",
+        "semantic_id": "http://example.com/semantic/TCF",
+        "TCFCalculationMethod": "IPCC GWP 100a",
+        "TCFCO2eq": 0.0
+      }
     ]
   }
 }
+

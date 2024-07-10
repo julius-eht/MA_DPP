@@ -149,15 +149,15 @@ class ProductUseType(str, Enum):
 
 class SubProduct(SubmodelElementCollection):
     """
-    SubmodelElementCollection to describe a subproduct of a product with reference to its AAS, status informatino and quantity.
+    SubmodelElementCollection to describe a subproduct of a product with reference to its AAS, status information and quantity.
 
     Args:
         description (Optional[str]): The description of the subproduct.
         id_short (Optional[str]): The short id of the subproduct.
         semantic_id (Optional[str]): The semantic id of the subproduct.
         product_type (str): The type of the subproduct.
-        product_id (str): The AAS reference of the subproduct.
-        status (Literal["assembled", "unassembled"]): The status of the subproduct.
+        passport_id (str): The AAS reference of the subproduct passport.
+        product_use_type (ProductUseType): Defines the Product use type
         quantity (int): The quantity of the subproduct(s).
     """
     product_type: str

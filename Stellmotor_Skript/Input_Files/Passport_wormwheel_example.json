@@ -1,0 +1,31 @@
+{
+  "id": "wormwheel_passport_001",
+  "description": "Passport for Worm Wheel",
+  "id_short": "WormWheelPassport",
+  "semantic_id": "http://example.com/semantic/WormWheelPassport",
+  "carbon_footprint": {
+    "id": "cfp_009",
+    "description": "Carbon footprint for Worm Wheel",
+    "id_short": "CFP",
+    "semantic_id": "http://example.com/semantic/CFP",
+    "product_footprints": [
+      {
+        "description": "PCF Test",
+        "id_short": "PCF_Test",
+        "semantic_id": "http://example.com/semantic/PCF",
+        "PCFCalculationMethod": "IPCC GWP 100a",
+        "PCFCO2eq": 0.1
+      }
+    ],
+    "transport_footprints": [
+      {
+        "description": "TCF Test",
+        "id_short": "TCF_Test",
+        "semantic_id": "http://example.com/semantic/TCF",
+        "TCFCalculationMethod": "IPCC GWP 100a",
+        "TCFCO2eq": 0.1
+      }
+    ]
+  }
+}
+

@@ -27,7 +27,7 @@ headers = {
 
 # List of JSON files with corrected names to post
 JSON_FILES = [
-    "Input_Files/Passport_motor_examle.json"
+    "Input_Files/Passport_motor_example.json",
     "Input_Files/AAS_motor_example.json",
     "Input_Files/AAS_process_pressen_1.json",
     "Input_Files/AAS_process_pressen_2_3.json",
@@ -38,8 +38,8 @@ JSON_FILES = [
     "Input_Files/AAS_process_schrauben_1.json",
     "Input_Files/AAS_process_schrauben_2.json",
     "Input_Files/AAS_procedure_pressen_1.json",
-    "Input_Files/AAS_procedure_pressen_2_3.json",
     "Input_Files/AAS_procedure_pressen_4.json",
+    "Input_Files/AAS_procedure_pressen_2_3.json",
     "Input_Files/AAS_procedure_magnetisieren.json",
     "Input_Files/AAS_procedure_fugen_1.json",
     "Input_Files/AAS_procedure_fugen_2.json",
@@ -57,7 +57,21 @@ JSON_FILES = [
     "Input_Files/Sub_AAS_poltopf_example.json",
     "Input_Files/Sub_AAS_ringmagnet_example.json",
     "Input_Files/Sub_AAS_screws_example.json",
-    "Input_Files/Sub_AAS_wormwheel_example.json"
+    "Input_Files/Sub_AAS_wormwheel_example.json",
+    "Input_Files/Passport_anchor_example.json",
+    "Input_Files/Passport_brushcarrier_example.json",
+    "Input_Files/Passport_clamps_example.json",
+    "Input_Files/Passport_geara_example.json",
+    "Input_Files/Passport_gearb_example.json",
+    "Input_Files/Passport_grease_example.json",
+    "Input_Files/Passport_housingea_example.json",
+    "Input_Files/Passport_housingeb_example.json",
+    "Input_Files/Passport_magnethalves_example.json",
+    "Input_Files/Passport_plasticpart_example.json",
+    "Input_Files/Passport_poltopf_example.json",
+    "Input_Files/Passport_ringmagnet_example.json",
+    "Input_Files/Passport_screws_example.json",
+    "Input_Files/Passport_wormwheel_example.json"
 ]
 
 # Function to post JSON data
@@ -71,10 +85,13 @@ def post_json(json_file, path):
 
 # Post all JSON files
 def post_all_jsons():
+    print("Uploading JSON files...")
     results = []
     for json_file in JSON_FILES:
         # Determine the path based on the JSON file name
-        if "motor" in json_file:
+        if "Passport" in json_file:
+            path = PATHS["Passport"]
+        elif "motor" in json_file:
             path = PATHS["Product"]
         elif "Sub_" in json_file:
             path = PATHS["Product"]
@@ -82,8 +99,6 @@ def post_all_jsons():
             path = PATHS["Process"]
         elif "procedure" in json_file:
             path = PATHS["Procedure"]
-        elif "Passport" in json_file:
-            path = PATHS["Passport"]
         else:
             continue
         status_code, response = post_json(json_file, path)

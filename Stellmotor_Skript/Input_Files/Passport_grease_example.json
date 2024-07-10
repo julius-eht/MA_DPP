@@ -1,0 +1,33 @@
+{
+  "id": "grease_passport_001",
+  "description": "Passport for Grease",
+  "id_short": "GreasePassport",
+  "semantic_id": "http://example.com/semantic/GreasePassport",
+  "carbon_footprints": {
+    "id": "cfp_014",
+    "description": "Carbon footprint for Grease",
+    "id_short": "CFP",
+    "semantic_id": "http://example.com/semantic/CFP",
+    "product_footprints": [
+      {
+        "description": "PCF Test",
+        "id_short": "PCF_Test",
+        "semantic_id": "http://example.com/semantic/PCF",
+        "PCFCalculationMethod": "IPCC GWP 100a",
+        "PCFCO2eq": 0.1
+      }
+    ],
+    "transport_footprints": [
+      {
+        "description": "TCF Test",
+        "id_short": "TCF_Test",
+        "semantic_id": "http://example.com/semantic/TCF",
+        "TCFCalculationMethod": "IPCC GWP 100a",
+        "TCFCO2eq": 0.1
+      }
+    ]
+  }
+}
+
+
+

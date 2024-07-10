@@ -26,7 +26,6 @@ client = ipc.Client(8083)
 # Load the product information from the Server file and procedure information from the file
 product_id = "product_001" # Adjust using User Input
 motor_data = Method_Toolbox.get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
-print(f"Retrieved product data for {product_id}")
 
 # Load Procedure data from SDM Model for Power Consumption Calculation
 procedure_data = Method_Toolbox.retrieve_attached_procedures(product_id)
@@ -179,23 +178,10 @@ result.wait_until_ready()
 # Check for errors
 if result.error:
     print(f"Error during calculation: {result.error}")
-else:
-    # Extract Total Impacts
-    total_impacts_data = []
-    for impact_value in result.get_total_impacts():
-        total_impacts_data.append({
-            "Impact Category": impact_value.impact_category.name,
-            "Amount": impact_value.amount,
-            "Unit": impact_value.impact_category.ref_unit
-        })
-    df_total_impacts = pd.DataFrame(total_impacts_data)
-    print(df_total_impacts)
-
 
 impact_category = client.find(o.ImpactCategory, name="IPCC GWP 100a")
 
 tech_flows = result.get_tech_flows()
-
 filtered_impacts = []
 
 for tech_flow in tech_flows:
@@ -206,5 +192,37 @@ for tech_flow in tech_flows:
             filtered_impacts.append((provider_name, impact.amount))
             
 # Display the filtered impacts
+print("Results of the LCA:")
 for provider_name, amount in filtered_impacts:
     print(f"{provider_name}: {amount} kg CO2 eq")
+
+# Define the name of the transport process
+transport_process_name = "Lorry transport, Euro 0, 1, 2, 3, 4 mix, 22 t total weight, 17,3t max payload"
+
+# Extract the CO2 value for the transport process using defined funtion
+def get_co2_values(filtered_impacts, exclude_process_name):
+    exclude_process_co2_value = None
+    other_co2_sum = 0.0
+
+    for provider_name, co2_value in filtered_impacts:
+        if provider_name == exclude_process_name:
+            exclude_process_co2_value = co2_value
+        else:
+            other_co2_sum += co2_value
+
+    return exclude_process_co2_value, other_co2_sum
+
+transport_co2_value, production_co2_sum = get_co2_values(filtered_impacts, transport_process_name)
+
+# Identify the Overall PCF
+motor_passport_name = motor_data['product_information']['passport_id']
+
+# Calculate Total PCF and TCF
+component_pcf = Method_Toolbox.retrieve_total_pcf(motor_passport_name)
+component_tcf = Method_Toolbox.retrieve_total_tcf(motor_passport_name)
+total_pcf = component_pcf + production_co2_sum
+total_tcf = component_tcf + transport_co2_value
+
+Method_Toolbox.update_passport_with_pcf(motor_passport_name,total_pcf,0)
+Method_Toolbox.update_passport_with_tcf(motor_passport_name,total_tcf,0)
+print('Updated TCF and PCF of the product system, script execution complete.')
