@@ -10,7 +10,7 @@ from openpyxl import Workbook
 # Paths to the data files
 product_json_path =os.path.join('Stellmotor_Skript', 'Input_Files', 'AAS_motor_example.json')
 procedures_json_path = os.path.join('Stellmotor_Skript', 'Output', 'attached_procedures.json')
-bom_excel_path = r'C:\Users\juliu\OneDrive\Desktop\Arbeitsdatein MA Skript\24-06-20_Supplementary Excel.xlsx'
+bom_excel_path = r'C:\Users\juliu\OneDrive\Dokumente\GitHub\MA_DPP\Stellmotor_Skript\Input_Files\24-06-20_Supplementary Excel.xlsx' # Change path to the Supplementary Excel
 
 # Initialize the IPC client for openLCA
 client = ipc.Client(8083)

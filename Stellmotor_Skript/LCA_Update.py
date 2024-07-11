@@ -10,7 +10,7 @@ from typing import Callable
 from openpyxl import Workbook
 
 # Define the base URL for the server
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "http://127.0.0.1:8000" # Change if server URL is differnt
 
 # Define the paths for each AAS type
 PATHS = {
@@ -24,7 +24,9 @@ PATHS = {
 client = ipc.Client(8083)
 
 # Load the product information from the Server file and procedure information from the file
+
 product_id = "product_001" # Adjust using User Input
+
 motor_data = Method_Toolbox.get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
 
 # Load Procedure data from SDM Model for Power Consumption Calculation
@@ -63,15 +65,21 @@ total_power_consumption = round(total_power_consumption, 4)
 print(f"Total power consumption from all procedures: {total_power_consumption} kWh")
 
 # Fetch Auxillary Information
-aux_excel_path = r'C:\Users\juliu\OneDrive\Desktop\Arbeitsdatein MA Skript\24-06-20_Supplementary Excel.xlsx'
+aux_excel_path = r'C:\Users\juliu\OneDrive\Dokumente\GitHub\MA_DPP\Stellmotor_Skript\Input_Files\24-06-20_Supplementary Excel.xlsx' # Change Excel path if necessary
 aux_data = pd.read_excel(aux_excel_path, sheet_name="SUPP_INFO")
 electricity_flow_id = aux_data.loc[aux_data['descr'] == 'Electricity', 'Flow ID'].values[0]
+electricity_provider_id = aux_data.loc[aux_data['descr'] == 'Electricity', 'Provider ID'].values[0]
 transport_flow_id = aux_data.loc[aux_data['descr'] == 'Transport', 'Flow ID'].values[0]
+transport_provider_id = aux_data.loc[aux_data['descr'] == 'Transport', 'Provider ID'].values[0]
 transport_value = aux_data.loc[aux_data['descr'] == 'Transport', 'Amount'].values[0]
 impact_method_id = aux_data.loc[aux_data['descr'] == 'ImpactMethod', 'Flow ID'].values[0]
 
 # Fetch the overall motor process object using its name
 overall_process = client.get(o.Process, name=overall_motor_name)
+
+# Fetch the auxillary processes for the provision in the overall product system process
+electricity_provider = client.get(o.Process, uid=electricity_provider_id)
+transport_provider = client.get(o.Process, uid=transport_provider_id)
 
 # Fetch the full process object using its ID
 print(f"Found process: {overall_process.name} with ID: {overall_process.id}")
@@ -99,6 +107,7 @@ if not transport_flow_found:
         transport_exchange.amount = transport_value
         transport_exchange.unit = unit_transport[0]
         transport_exchange.is_input = True  # Indicate that this is an input exchange
+        transport_exchange.default_provider = transport_provider
 
         # Append the new input exchange to the list of existing exchanges
         existing_exchanges.append(transport_exchange)
@@ -125,6 +134,7 @@ if not power_flow_found:
         power_exchange.amount = total_power_consumption
         power_exchange.unit = unit_kWh[0]
         power_exchange.is_input = True  # Indicate that this is an input exchange
+        power_exchange.default_provider = electricity_provider
 
         # Append the new input exchange to the list of existing exchanges
         existing_exchanges.append(power_exchange)

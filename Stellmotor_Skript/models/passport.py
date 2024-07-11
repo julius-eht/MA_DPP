@@ -407,7 +407,6 @@ class Passport(AAS):
         handover_documentation (Optional[HandoverDocumentation]): The handover documentation.
         reliability (Optional[Reliability]): The reliability of the product.
     """
-    id: str
     carbon_footprint: Optional[CarbonFootprint]
     bom: Optional[BOM]
     smt_technical_data: Optional[SMTTechnicalData]

@@ -4,7 +4,7 @@ import requests
 import Method_Toolbox
 
 # Define the base URL for the server
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "http://127.0.0.1:8000" # Change to your server's URL if different
 
 # Define the paths for each AAS type
 PATHS = {
@@ -14,7 +14,9 @@ PATHS = {
     "Passport": "/Passport/"
 }
 
-passport_id = "motor_passport_001"
+passport_id = "motor_passport_001"  # Adjust this ID to your specific use case
+
+
 passport_data = Method_Toolbox.get_json(BASE_URL + PATHS["Passport"] + f"{passport_id}")
 
 # Initialize lists to store PCF and TCF data

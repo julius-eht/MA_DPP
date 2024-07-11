@@ -14,7 +14,7 @@ PATHS = {
 }
 
 # Directory where JSON files are stored
-JSON_DIRECTORY = "Stellmotor_Skript"  # Adjust this if your JSON files are in a different directory
+JSON_DIRECTORY = "Stellmotor_Skript"  # Adjust this if  JSON files are in a different directory
 
 # Headers to match manual upload (Postman)
 headers = {

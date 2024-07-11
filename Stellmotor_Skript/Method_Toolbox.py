@@ -21,7 +21,7 @@ headers = {
     "Accept": "*/*",
     "Accept-Encoding": "gzip, deflate, br",
     "Connection": "keep-alive",
-    "User-Agent": "PostmanRuntime/7.39.0"  # This mirrors the User-Agent from the manual upload
+    "User-Agent": "PostmanRuntime/7.39.0" 
 }
 
 # Function to get JSON data from the server

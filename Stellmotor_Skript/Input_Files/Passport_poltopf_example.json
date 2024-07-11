@@ -14,10 +14,11 @@
         "id_short": "PCF_Test",
         "semantic_id": "http://example.com/semantic/PCF",
         "PCFCalculationMethod": "IPCC GWP 100a",
-        "PCFCO2eq": 0.1
+        "PCFCO2eq": 0.79
       }
     ],
     "transport_footprints": [
+      
       {
         "description": "TCF Test",
         "id_short": "TCF_Test",
