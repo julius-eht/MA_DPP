@@ -64,7 +64,7 @@ def retrieve_attached_procedures(product_id):
             # Fetch the process data to get the process attributes
             process_data = get_json(BASE_URL + PATHS["Process"] + f"{process_id}")
             process_attributes = process_data.get("process_attributes", {}).get("id_short")
-            if process_attributes:
+            if process_attributes: # Change this once the middleware is working to match using "process-attributes" instead
                 # Derive the procedure ID from the process ID
                 procedure_id = f"procedure_{process_id.split('_', 1)[1]}"
                 # Construct the full URL for the procedure
@@ -80,7 +80,7 @@ def retrieve_attached_procedures(product_id):
     print("Completed retrieval of all attached procedures.")
     return procedure_responses
 
-def retrieve_total_pcf(passport_id: str) -> float:
+def retrieve_component_pcf(passport_id: str) -> float:
     print("Gathering PCF Data...")
     total_pcf = 0.0
 
@@ -123,7 +123,7 @@ def retrieve_total_pcf(passport_id: str) -> float:
     print("Completed retrieval and aggregation of all PCF data.")
     return total_pcf
 
-def retrieve_total_tcf(passport_id: str) -> float:
+def retrieve_component_tcf(passport_id: str) -> float:
     print("Gathering TCF Data...")
     total_tcf = 0.0
     # Load the product AAS to find the BOM

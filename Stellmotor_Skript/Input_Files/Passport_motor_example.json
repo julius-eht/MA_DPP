@@ -179,6 +179,8 @@
   "smt_technical_data": {
     "id": "smt_technical_data_001",
     "id_short": "smt_data_001",
+    "description": "Technical data for the overall DPP",
+    "semantic_id": "http://example.com/semantic/SMTTechnicalData",
     "GeneralInformation": {
       "id_short": "smt_general_info_001",
       "ManufacturerName": "Bosch",
@@ -214,6 +216,8 @@
   "handover_documentation": {
     "id": "handover_doc_001",
     "id_short": "handover_001",
+    "description": "Documentation for the overall DPP",
+    "semantic_id": "http://example.com/semantic/HandoverDocumenation",
     "Entity": [
       "Entity1",
       "Entity2"
@@ -265,6 +269,8 @@
   "reliability": {
     "id": "reliability_001",
     "id_short": "rel_001",
+    "description": "Reliability data for the overall product",
+    "semantic_id": "http://example.com/semantic/Reliability",
     "NumberOfReliabilitySets": 1,
     "OperatingConditionsOfReliabilityCharacteristics": [
       {

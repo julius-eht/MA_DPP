@@ -29,21 +29,13 @@ print(f"Retrieved product data for {product_id}")
 # Extract the overall product description from the JSON
 overall_motor_name = motor_data['id_short']
 
-# Define flow properties (Assuming these properties exist in the openLCA database)
+# Define flow properties 
 items = client.find(o.FlowProperty, name="Number of items")
 
 # Define units 
-group_ref_mass = client.find(o.UnitGroup, "Units of mass")
-group = client.get(o.UnitGroup, group_ref_mass.id)
-unit_kg = [u for u in group.units if u.name == "kg"]
-
 group_ref_items = client.find(o.UnitGroup, "Units of items")
 group = client.get(o.UnitGroup, group_ref_items.id)
 unit_items = [u for u in group.units if u.name == "Item(s)"]
-
-group_ref_energy = client.find(o.UnitGroup, "Units of energy")
-group = client.get(o.UnitGroup, group_ref_energy.id)
-unit_kWh = [u for u in group.units if u.name == "kWh"]
 
 # Create dictionaries to keep track of flows and processes
 flow_dict = {}

@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "aas2openapi"
-version = "0.2.4"
+name = "MA_DPP"
+version = "0.9"
 description = ""
-authors = ["SebBehrendt"]
+authors = ["JuliusEberhardt"]
 license = "MIT License"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.11"
 pydantic = "^1.10.9"
 uvicorn = {extras = ["standard"], version = "^0.21.0"}
 fastapi = "0.99.1"

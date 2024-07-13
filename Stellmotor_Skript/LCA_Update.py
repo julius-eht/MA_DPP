@@ -158,7 +158,6 @@ if existing_product_system:
 else:
     # Create a linking configuration for the product system
     config = o.LinkingConfig(
-        prefer_unit_processes=False,
         provider_linking=o.ProviderLinking.ONLY_DEFAULTS,
     )
     # Create the product system using the overall motor process as the root
@@ -228,8 +227,8 @@ transport_co2_value, production_co2_sum = get_co2_values(filtered_impacts, trans
 motor_passport_name = motor_data['product_information']['passport_id']
 
 # Calculate Total PCF and TCF
-component_pcf = Method_Toolbox.retrieve_total_pcf(motor_passport_name)
-component_tcf = Method_Toolbox.retrieve_total_tcf(motor_passport_name)
+component_pcf = Method_Toolbox.retrieve_component_pcf(motor_passport_name)
+component_tcf = Method_Toolbox.retrieve_component_tcf(motor_passport_name)
 total_pcf = component_pcf + production_co2_sum
 total_tcf = component_tcf + transport_co2_value
 
