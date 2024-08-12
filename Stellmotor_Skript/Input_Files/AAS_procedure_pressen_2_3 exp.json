@@ -1,0 +1,36 @@
+{
+  "id": "procedure_pressen_2_3 exp",
+  "description": "Pressen 2/3 Procedure",
+  "id_short": "Pressen_2_3",
+  "semantic_id": "http://example.com/semantic/Pressen_2_3_Procedure",
+  "procedure_information": {
+    "id": "procedure_info_pressen_2_3",
+    "description": "Procedure for the second and third pressing process in the assembly sequence",
+    "id_short": "SecondThirdPressingProcedure",
+    "semantic_id": "http://example.com/semantic/SecondThirdPressingProcedure",
+    "procedure_type": "Production"
+  },
+  "process_attributes": {
+    "id": "TestID1",
+    "description": "Attributes for the Pressen 2/3 process",
+    "id_short": "Pressen_2_3_Attributes",
+    "semantic_id": "http://example.com/semantic/Pressen_2_3_Attributes",
+    "process_attributes": [
+      {
+        "id_short": "Pressure_Range",
+        "attribute_carrier": "Pressen_2_3",
+        "general_attribute": "Pressure",
+        "predicate_type": "within_range",
+        "attribute_value": "100-200 PSI"
+      }
+    ]
+  },
+  "procedure_emission": {
+    "id": "proc_emission_pressen_2_3",
+    "description": "Emission details for Pressen 2/3 procedure",
+    "id_short": "Pressen_2_3_Emission",
+    "semantic_id": "http://example.com/semantic/Pressen_2_3_Emission",
+    "power_consumption": 0.1,
+    "green_house_gas_emission": null
+  }
+}

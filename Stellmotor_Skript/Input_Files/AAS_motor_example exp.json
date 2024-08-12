@@ -1,0 +1,35 @@
+{
+  "id": "product_001",
+  "description": "Bosch AHC2 Motor",
+  "id_short": "AHC2_Motor",
+  "semantic_id": "http://example.com/semantic/AHC2_Motor",
+  "product_information": {
+      "id": "prod_info_001",
+      "description": "Bosch AHC2 DC motor with transmission",
+      "id_short": "AHC2_Info",
+      "semantic_id": "http://example.com/semantic/AHC2_Info",
+      "product_type": "DC Motor with Transmission",
+      "manufacturer": "Bosch",
+      "maintenance_manual": "http://bosch-ibusiness.com/manuals/AHC2_maintenance.pdf",
+      "operating_manual": "http://bosch-ibusiness.com/manuals/AHC2_operating.pdf",
+      "disassembly_manual": "http://bosch-ibusiness.com/manuals/AHC2_disassembly.pdf",
+      "green_house_gas_emission": {
+          "id": "ghg_001",
+          "description": "Greenhouse gas emissions for the manufacturing process",
+          "id_short": "GHGEmission",
+          "semantic_id": "http://example.com/semantic/GHGEmission",
+          "emission_scope_one": null,
+          "emission_scope_two": null,
+          "emission_scope_three": null
+      },
+      "passport_id": "motor_passport_001" 
+  },
+  "process_reference": {
+      "id": "proc_ref_001",
+      "description": "Primary and alternative processes for creating Bosch AHC2 Motor",
+      "id_short": "ProcRef",
+      "semantic_id": "http://example.com/semantic/ProcRef",
+      "process_id": "process_pressen_2_3 exp",
+      "alternative_processes_ids": ["process_fugen_1", "process_fugen_1", "process_pressen_1", "process_pressen_4", "process_magnetisieren", "process_schrauben_1", "process_schrauben_2"]
+  }
+}
