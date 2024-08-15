@@ -1,0 +1,816 @@
+{
+  "name": "SDM Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "317aa1dd-cf2a-413a-a561-3b497d9f7c7f",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1620,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://172.17.0.1:8000/workflows/get_reference_model_data",
+        "options": {}
+      },
+      "id": "990e8612-1f81-4def-8ed1-3b7b83228dab",
+      "name": "Get Bosch ARENA 2036 data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1420,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7d54191f-e031-4498-9b31-c72d59eab48e",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e455e6b3-60af-4e87-9b03-ed5a03bfdf3d",
+      "name": "If new potential configuration",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -760,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:8000/workflows/schedule_with_flexis",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ }",
+        "options": {}
+      },
+      "id": "b9697c6c-c14b-426e-b520-47efbdc5f8e1",
+      "name": "schedule with flexis",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -200,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#sdm",
+          "mode": "name"
+        },
+        "text": "@planners: New potential configuration found for production system",
+        "otherOptions": {}
+      },
+      "id": "2c9f37a6-c4ca-4115-98e2-e315c0c03cc4",
+      "name": "Slack inform new potential configuration",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        -540,
+        840
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "mJmfM63AuxX8UdOv",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#sdm",
+          "mode": "name"
+        },
+        "text": "@planners: No new configuration could be found for Bosch Demonstrator on ARENA2036",
+        "otherOptions": {}
+      },
+      "id": "c760cd30-3965-418e-8231-ee8d9ad9de6f",
+      "name": "Slack inform no new configuration",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        -520,
+        1380
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "mJmfM63AuxX8UdOv",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7d54191f-e031-4498-9b31-c72d59eab48e",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e1789f2e-dc0a-4242-8fe4-ff56e0f5ffd5",
+      "name": "If feasible schedule",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        20,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:8000/workflows/adjust_optimization_parameters",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ json }}",
+        "options": {}
+      },
+      "id": "eb2c1915-01ad-417e-939e-553336b1a20b",
+      "name": "Relax Optimization Constraints",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        840,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:8000/workflows/simulate_with_simplan",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {}
+      },
+      "id": "b5a38147-8796-4178-9913-12ee77aa00f0",
+      "name": "Validate with SimPlan",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        380,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7d54191f-e031-4498-9b31-c72d59eab48e",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d641ac9f-0d9a-4a4e-a4f6-c9d28881c994",
+      "name": "If production ready",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        680,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:8000/workflows/save_prodsys_configuration_to_aas_server",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "ad891c2a-2f47-4b00-bb67-9e12b1c44229",
+      "name": "save configuration to AAS server",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -540,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:8000/workflows/save_schedule_to_aas_server",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "[]",
+        "options": {}
+      },
+      "id": "f8584801-8248-4db8-b06a-e1a3687eda4c",
+      "name": "save schedule to AAS server",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        380,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#sdm",
+          "mode": "name"
+        },
+        "text": "@maintenance @workers: New setup plan for next shift. Please check the instructions.",
+        "otherOptions": {}
+      },
+      "id": "fef56dc2-e6ce-4c0c-ba72-0714a4f359bb",
+      "name": "Slack inform maintenance team",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1080,
+        980
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "mJmfM63AuxX8UdOv",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "topic": "sdm/schedule",
+        "sendInputData": false,
+        "message": "{\"load_new_schedules\": \"true\"}",
+        "options": {}
+      },
+      "id": "fd34ff6b-f555-46ca-b039-37b4b92d4d27",
+      "name": "MQTT",
+      "type": "n8n-nodes-base.mqtt",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        820
+      ],
+      "credentials": {
+        "mqtt": {
+          "id": "BpUoCxUHe7mPTBQx",
+          "name": "MQTT account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#sdm",
+          "mode": "name"
+        },
+        "text": "@management: Everything is alright. A new configuration was found to suit all demands.",
+        "otherOptions": {}
+      },
+      "id": "be199cf6-cda1-4f1f-997a-a42e59d7fc9b",
+      "name": "Slack inform management",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1080,
+        1160
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "mJmfM63AuxX8UdOv",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "topics": "sdm/breakdown",
+        "options": {}
+      },
+      "id": "430e135c-0587-4cf6-9639-795187801805",
+      "name": "MQTT Breakdown Trigger",
+      "type": "n8n-nodes-base.mqttTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        540
+      ],
+      "credentials": {
+        "mqtt": {
+          "id": "BpUoCxUHe7mPTBQx",
+          "name": "MQTT account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "errorMessage": "No feasible solution"
+      },
+      "id": "6738e434-30f7-4d4e-8316-1d4d17a7fa45",
+      "name": "Stop and Error",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        1780
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:8000/workflows/optimize_production_system",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "f418cb49-46aa-42dc-864a-8de446303be0",
+      "name": "Optimize Layout and Capacity with prodsys",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -980,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:8000/workflows/kenbun_breakdown_monitoring",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.message }}",
+        "options": {}
+      },
+      "id": "5936cfe1-abba-49dd-bf9d-7119c486b99e",
+      "name": "Kenbun breakdown monitoring service",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -780,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://172.17.0.1:8000/workflows/map_reference_model_to_prodsys",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "d4098398-04ea-4b8a-ab03-92fb3c434bd3",
+      "name": "Map Reference Model to prodsys",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1200,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7d54191f-e031-4498-9b31-c72d59eab48e",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7a310828-7ea4-4134-b6c4-9e7d7c8ccd9f",
+      "name": "If contraints could be relaxed",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "7d54191f-e031-4498-9b31-c72d59eab48e",
+              "leftValue": "={{ $json.scheduling_required }}",
+              "rightValue": "=True",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ccf978f8-e6ff-4fd8-863b-0818a7bb2152",
+      "name": "If rescheduling required",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -560,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#sdm",
+          "mode": "name"
+        },
+        "text": "@planners @workers @maintenance: Machine breakdown happened that requires rescheduling",
+        "otherOptions": {}
+      },
+      "id": "62b62efa-9b36-4676-8508-b1d71c858e97",
+      "name": "Slack inform about reschuedling",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        540
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "mJmfM63AuxX8UdOv",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#sdm",
+          "mode": "name"
+        },
+        "text": "@management: Big problem. The demand cannot be satisfied with the capex and opex limits. Escalation needed!",
+        "otherOptions": {}
+      },
+      "id": "70dc2cc1-837d-4770-b86d-7fc6eff16689",
+      "name": "Slack inform management for escalation",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1340,
+        1580
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "mJmfM63AuxX8UdOv",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "#sdm",
+          "mode": "name"
+        },
+        "text": "@planners: Schedule found for potential new configuration",
+        "otherOptions": {}
+      },
+      "id": "aa644eda-8c39-4aed-9747-ecbbe0b4537f",
+      "name": "Slack inform new potential configuration1",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        380,
+        860
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "mJmfM63AuxX8UdOv",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Get Bosch ARENA 2036 data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Bosch ARENA 2036 data": {
+      "main": [
+        [
+          {
+            "node": "Map Reference Model to prodsys",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If new potential configuration": {
+      "main": [
+        [
+          {
+            "node": "save configuration to AAS server",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "schedule with flexis",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack inform new potential configuration",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Relax Optimization Constraints",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack inform no new configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "schedule with flexis": {
+      "main": [
+        [
+          {
+            "node": "If feasible schedule",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If feasible schedule": {
+      "main": [
+        [
+          {
+            "node": "Validate with SimPlan",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "save schedule to AAS server",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack inform new potential configuration1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Relax Optimization Constraints",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Relax Optimization Constraints": {
+      "main": [
+        [
+          {
+            "node": "If contraints could be relaxed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate with SimPlan": {
+      "main": [
+        [
+          {
+            "node": "If production ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If production ready": {
+      "main": [
+        [
+          {
+            "node": "MQTT",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack inform maintenance team",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack inform management",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Relax Optimization Constraints",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Optimize Layout and Capacity with prodsys": {
+      "main": [
+        [
+          {
+            "node": "If new potential configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Kenbun breakdown monitoring service": {
+      "main": [
+        [
+          {
+            "node": "If rescheduling required",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map Reference Model to prodsys": {
+      "main": [
+        [
+          {
+            "node": "Optimize Layout and Capacity with prodsys",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If contraints could be relaxed": {
+      "main": [
+        [
+          {
+            "node": "Map Reference Model to prodsys",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack inform management for escalation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MQTT Breakdown Trigger": {
+      "main": [
+        [
+          {
+            "node": "Kenbun breakdown monitoring service",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If rescheduling required": {
+      "main": [
+        [
+          {
+            "node": "schedule with flexis",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Slack inform about reschuedling",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9e02d511-dd8f-4500-88ee-8ef9f23f61f0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fbc9692cd2416e93a34441b27fc1e2b620a7f46a30bc2977e3f254e750a8857f"
+  },
+  "id": "0OMkNKpyAAvKPkul",
+  "tags": []
+}

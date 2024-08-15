@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  aas-env:
+    image: eclipsebasyx/aas-environment:2.0.0-SNAPSHOT-NOINDEX
+    ports:
+        - 8081:8081
+
+networks:
+  backend:
+    driver: bridge

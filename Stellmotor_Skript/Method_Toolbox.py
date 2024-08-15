@@ -264,3 +264,52 @@ def update_passport_with_tcf(passport_id: str, total_tcf: float, footprint_nr: i
         print(f"Successfully updated TCF for passport ID {passport_id}")
     except Exception as e:
         print(f"Failed to update passport data for {passport_id}: {e}")
+
+# Retrieve all attached procedures for a given product --> Experimental function for middleware change
+def retrieve_procedures_exp(product_id):
+    procedure_responses = []
+    # Load the product AAS to find the main process
+    try:
+        product_data = get_json(BASE_URL + PATHS["Product"] + f"{product_id}")
+        print(f"Retrieving product data for {product_id}...")
+        main_process_id = product_data.get("process_reference", {}).get("process_id")
+        if not main_process_id:
+            print(f"Main process not found for product {product_id}")
+            return procedure_responses
+        print(f"Main process ID found: {main_process_id}, searching procedures...")
+    except Exception as e:
+        print(f"Failed to get product data for {product_id}: {e}")
+        return procedure_responses
+
+    # Load the main process to find attached processes
+    try:
+        main_process_data = get_json(BASE_URL + PATHS["Process"] + f"{main_process_id}")
+        attached_process_ids = main_process_data.get("process_model", {}).get("sequence", [])
+    except Exception as e:
+        print(f"Failed to get main process data for {main_process_id}: {e}")
+        return procedure_responses
+
+    # Retrieve procedure data for each attached process using process attributes ID
+    for process_id in attached_process_ids:
+        try:
+            # Fetch the process data to get the process attributes ID
+            process_data = get_json(BASE_URL + PATHS["Process"] + f"{process_id}")
+            process_attributes_id = process_data.get("process_attributes", {}).get("id")
+            
+            all_procedures_data = get_json(BASE_URL + PATHS["Procedure"])
+            if process_attributes_id: 
+                # Now, instead of constructing the procedure ID, search through all procedures
+                for procedure in all_procedures_data:  # Assuming all_procedures_data is a list of all procedures
+                    if procedure.get("process_attributes", {}).get("id") == process_attributes_id:
+                        # If the procedure's process_attributes ID matches, it's the correct procedure
+                        procedure_responses.append(procedure)
+                        break
+                else:
+                    print(f"No matching procedure found for process_attributes ID: {process_attributes_id}")
+            else:
+                print(f"No process attributes ID found for process {process_id}")
+        except Exception as e:
+            print(f"Failed to get procedure data for {process_id}: {e}")
+
+    print("Completed retrieval of all attached procedures.")
+    return procedure_responses

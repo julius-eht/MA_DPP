@@ -1,0 +1,123 @@
+version: "3.7"
+
+services:
+  traefik:
+    image: "traefik"
+    # restart: always
+    command:
+      - "--api=true"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true"
+      - "--certificatesresolvers.mytlschallenge.acme.email=${SSL_EMAIL}"
+      - "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - traefik_data:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    # restart: always
+    ports:
+      - "127.0.0.1:5678:5678"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.n8n.rule=Host(`${SUBDOMAIN}.${DOMAIN_NAME}`)
+      - traefik.http.routers.n8n.tls=true
+      - traefik.http.routers.n8n.entrypoints=web,websecure
+      - traefik.http.routers.n8n.tls.certresolver=mytlschallenge
+      - traefik.http.middlewares.n8n.headers.SSLRedirect=true
+      - traefik.http.middlewares.n8n.headers.STSSeconds=315360000
+      - traefik.http.middlewares.n8n.headers.browserXSSFilter=true
+      - traefik.http.middlewares.n8n.headers.contentTypeNosniff=true
+      - traefik.http.middlewares.n8n.headers.forceSTSHeader=true
+      - traefik.http.middlewares.n8n.headers.SSLHost=${DOMAIN_NAME}
+      - traefik.http.middlewares.n8n.headers.STSIncludeSubdomains=true
+      - traefik.http.middlewares.n8n.headers.STSPreload=true
+      - traefik.http.routers.n8n.middlewares=n8n@docker
+    environment:
+      - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+    volumes:
+      - n8n_data:/home/node/.n8n
+  mongo:
+    image: mongo:5.0.10
+    # Provide mongo config
+    # restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoAdmin
+      MONGO_INITDB_ROOT_PASSWORD: mongoPassword
+    # Set health checks to wait until mongo has started
+    volumes:
+    -  db:/data/db 
+    healthcheck:
+      test: mongo
+      interval: 10s
+      start_period: 5s
+      retries: 5
+    # Maps tcp port to host
+    #ports:
+    #  - 27017:27017
+  aas-env:
+    image: eclipsebasyx/aas-environment:2.0.0-SNAPSHOT-NOINDEX
+    volumes:
+      - ./aas-env.properties:/application/application.properties
+    ports:
+        - 8081:8081
+    depends_on:
+        mongo:
+            condition: service_healthy       
+  aas-registry:
+    image: eclipsebasyx/aas-registry-log-mongodb:2.0.0-SNAPSHOT
+    container_name: aas-registry
+    ports:
+      - 8082:8080
+    volumes:
+      - ./aas-registry.yml:/workspace/config/application.yml
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: always
+  aas-web-ui_v2:
+    image: eclipsebasyx/aas-gui:v2-231009
+    container_name: aas-web-ui_v2
+    ports:
+      - "3100:3000"
+    environment:
+      VITE_REGISTRY_PATH: "http://localhost:8082"
+      VITE_AAS_REPO_PATH: "http://localhost:8081/shells"
+      VITE_SUBMODEL_REPO_PATH: "http://localhost:8081/submodels"
+      VITE_CD_REPO_PATH: "http://localhost:8081/concept-descriptions"
+    # restart: always
+  aas2openapi-middleware:
+    build: 
+      context: ../
+      dockerfile: ./reference_model_middleware/Dockerfile
+    ports:
+      - 8000:8000
+    environment:
+      - AAS_SERVER_HOST=aas-env
+      - AAS_SERVER_PORT=8081
+      - SUBMODEL_SERVER_HOST=aas-env
+      - SUBMODEL_SERVER_PORT=8081
+    depends_on:
+      - aas-env
+
+volumes:
+  traefik_data:
+    external: true
+  n8n_data:
+    external: true
+  db:
